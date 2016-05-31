@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title -Presevi Industries</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/lib/bootstrap/css/googlefonts.css" rel="stylesheet" />
+        <link href="~/lib/materialize/css/materialize.min.css" rel="stylesheet" />
+        <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/lib/pace/css/pace.css" rel="stylesheet" />
+
+        <!-- custom css-->
+        <link href="~/css/Site.css" rel="stylesheet" type="text/css" />
+        <meta name="viewport" content="width=device-width" />
+        @RenderSection("head-section", required: false)
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <nav class="navbar navbar-harvest navbar-static-top ">
+                    <div class="navbar-inner">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+
+                                <a class="navbar-brand logo" href="index.html">
+                                    <img src="images/presevi-logo.png" alt="">
+                                </a>
+                                <a class="navbar-brand brand" href="index.html">
+                                    <span>Presevi Industrial Solutions</span>
+                                </a>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class=" navbar-collapse collapse navbar-right" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <a href="~/home">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/about">About Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/product">Products</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/contact">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("carousel", required: false)
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Web Page</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="~/lib/jquery/jquery-2.1.1.min.js"></script>
+        <script src="~/lib/jquery/jquery.responsiveTabs.min.js"></script>
+        <script src="~/lib/jquery/responsiveslides.min.js"></script>
+        <script src="~/lib/materialize/js/materialize.min.js"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/lib/pace/js/pace.min.js"></script>
+
+        @RenderSection("Scripts", required: false)
+    </body>
+</html>

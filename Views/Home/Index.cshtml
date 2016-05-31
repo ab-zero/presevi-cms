@@ -1,0 +1,182 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section carousel {
+
+    <div id="home-carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators hidden">
+            <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#home-carousel" data-slide-to="1" class=""></li>
+            <li data-target="#home-carousel" data-slide-to="2" class=""></li>
+            <li data-target="#home-carousel" data-slide-to="3" class=""></li>
+            <li data-target="#home-carousel" data-slide-to="4" class=""></li>
+        </ol>
+        <div class="carousel-inner" role="list-box">
+            <div class="item active">
+
+                <img class="first-slide active" src="images/banner/Energy.png" alt="First Slide">
+                <a href="products.html">
+                    <div class="container">
+
+                        <div class="carousel-caption1 carousel-caption-custom">
+                            <h1>Energy</h1>
+                            <div class="carousel-caption-text">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt ligula vitae elementum aliquam. Suspendisse sollicitudin, sem sed luctus vulputate, velit mauris posuere est, accumsan malesuada orci tortor ut nibh. Donec malesuada ornare velit non posuere. Nam sem elit, suscipit ac ipsum eget, consequat rhoncus turpis. Integer fringilla lectus quis lacus porttitor rutrum. </p>
+                                <p class="para-click-text">Click to know more about us...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </a>
+            </div>
+            <div class="item">
+
+                <img class="second-slide" src="images/banner/HVAC.png" alt="Second Slide">
+                <a href="products.html">
+                    <div class="container">
+                        <div class="carousel-caption1 carousel-caption-custom">
+                            <h1>HVAC</h1>
+                            <div class="carousel-caption-text">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt ligula vitae elementum aliquam. Suspendisse sollicitudin, sem sed luctus vulputate, velit mauris posuere est, accumsan malesuada orci tortor ut nibh. Donec malesuada ornare velit non posuere. Nam sem elit, suscipit ac ipsum eget, consequat rhoncus turpis. Integer fringilla lectus quis lacus porttitor rutrum. </p>
+                                <p class="para-click-text">click to know about our services...</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item ">
+
+                <img class="third-slide" src="images/banner/Hospitality.png" alt="Third Slide">
+                <a href="products.html">
+                    <div class="container">
+                        <div class="carousel-caption1 carousel-caption-custom">
+                            <h1>Hospitality</h1>
+                            <div class="carousel-caption-text">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt ligula vitae elementum aliquam. Suspendisse sollicitudin, sem sed luctus vulputate, velit mauris posuere est, accumsan malesuada orci tortor ut nibh. Donec malesuada ornare velit non posuere. Nam sem elit, suscipit ac ipsum eget, consequat rhoncus turpis. Integer fringilla lectus quis lacus porttitor rutrum. </p>
+                                <p class="para-click-text">Click to view our products catalog...</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="item ">
+
+                <img class="fourth-slide" src="images/banner/Telecom.png" alt="fourth Slide">
+                <a href="products.html">
+                    <div class="container">
+                        <div class="carousel-caption1 carousel-caption-custom">
+                            <h1>Telecom Industry products</h1>
+                            <div class="carousel-caption-text">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt ligula vitae elementum aliquam. Suspendisse sollicitudin, sem sed luctus vulputate, velit mauris posuere est, accumsan malesuada orci tortor ut nibh. Donec malesuada ornare velit non posuere. Nam sem elit, suscipit ac ipsum eget, consequat rhoncus turpis. Integer fringilla lectus quis lacus porttitor rutrum. </p>
+                                <p class="para-click-text">Click to view our products catalog...</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="item ">
+
+                <img class="fifth-slide" src="images/banner/General.png" alt="fifth Slide">
+                <a href="products.html">
+                    <div class="container">
+                        <div class="carousel-caption1 carousel-caption-custom">
+                            <h1>General Products</h1>
+                            <div class="carousel-caption-text">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt ligula vitae elementum aliquam. Suspendisse sollicitudin, sem sed luctus vulputate, velit mauris posuere est, accumsan malesuada orci tortor ut nibh. Donec malesuada ornare velit non posuere. Nam sem elit, suscipit ac ipsum eget, consequat rhoncus turpis. Integer fringilla lectus quis lacus porttitor rutrum. </p>
+                                <p class="para-click-text">Click to view our products catalog...</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <a class="left carousel-control carousel-custom-control" href="#home-carousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"> </span>
+        </a>
+        <a class="right carousel-control carousel-custom-control" href="#home-carousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"> </span>
+        </a>
+
+
+    </div>
+}
+
+
+<ul>
+    @{
+        foreach (var banner in ViewBag.BannerList)
+        {
+            <li>
+                @banner.ImageHeader
+            </li>
+        }
+    }
+</ul>
+
+@*<div class="container-fluid">
+    <div class="row content-area">
+        <h1>Products Categories</h1>
+
+        <a href="products.html" class="col-lg-5ths col-md-6 col-sm-12 col-xs-12">
+            <div class="content-box content-four">
+                <img src="images/product-header/Energy2.jpg" class="img-responsive" />
+                <div class="content-desc">
+                    <p class="desc-heading">Energy Saving Sectors</p>
+                    <p class="desc-writeup">Enter brief description here about Energy Saving Sectors</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="products.html" class="col-lg-5ths col-md-6 col-sm-12 col-xs-12">
+            <div class="content-box content-one">
+                <img src="images/product-header/hvac1.jpg" class="img-responsive" />
+                <div class="content-desc">
+                    <p class="desc-heading">Heating Ventilation and Air Conditioning (HVAC)</p>
+                    <p class="desc-writeup">Enter brief description here about Heating Ventilation and Air Conditioning (HVAC)</p>
+
+                </div>
+            </div>
+        </a>
+        <a href="products.html" class="col-lg-5ths col-md-6 col-sm-12 col-xs-12">
+            <div class="content-box content-three">
+                <img src="images/product-header/hospitality1.jpg" class="img-responsive" />
+                <div class="content-desc">
+                    <p class="desc-heading">Hospitality Sectors</p>
+                    <p class="desc-writeup">Enter brief description here about Hospitality Sectors</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="products.html" class="col-lg-5ths col-md-6 col-sm-12 col-xs-12">
+            <div class="content-box content-two">
+                <img src="images/product-header/bms1.jpg" class="img-responsive" />
+                <div class="content-desc">
+                    <p class="desc-heading">Telecom Domain</p>
+                    <p class="desc-writeup">Enter brief description here about Telecom</p>
+
+                </div>
+            </div>
+        </a>
+
+
+        <a href="products.html" class="col-lg-5ths col-md-6 col-sm-12 col-xs-12">
+            <div class="content-box content-four">
+                <img src="images/product-header/bms2.jpg" class="img-responsive" />
+                <div class="content-desc">
+                    <p class="desc-heading">General Products</p>
+                    <p class="desc-writeup">Enter brief description here about General Products</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+
+</div>*@
+
+
+

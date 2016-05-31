@@ -1,0 +1,397 @@
+﻿.navbar-brand.navbar-image {
+    max-height: 55px;
+    padding-top: 12px !important;
+}
+
+    .navbar-brand.navbar-image img {
+        height: 30px;
+    }
+
+.navbar-harvest .navbar-inner .navbar-header {
+    padding-top: 18px;
+    font-size: 180%;
+    font-family: "Trebuchet MS", arial, monospace;
+}
+
+.navbar-harvest .navbar-inner {
+    height: 70px;
+    background: #192156;
+    background: -webkit-linear-gradient(top, #2C3361, #192156);
+    background: -webkit-linear-gradient(top, #2C3361, #192156);
+    background: -webkit-linear-gradient(top, rgba(38, 41, 60, 0.9), rgba(38, 41, 60, 0.85));
+    background: -webkit-linear-gradient(top, rgba(255, 87, 34, 0.82), rgba(255, 87, 34, 0.92));
+    background: -webkit-linear-gradient(top, rgba(43, 43, 43, 0.95), #000000);
+    background: -moz-linear-gradient(top, #2C3361, #192156);
+    background: -o-linear-gradient(top, #2C3361, #192156);
+    background: -ms-linear-gradient(top, #2C3361, #192156);
+    background: linear-gradient(top, #2C3361, #192156);
+    -webkit-box-shadow: 0px 0px 8px 0px #000000;
+    -moz-box-shadow: 0px 0px 8px 0px #000000;
+    box-shadow: 0px 0px 8px 0px #2A0000;
+    /*background-color: rgba(250, 34, 34, 1);*/
+    color: rgba(1, 1, 1, 0.8);
+    z-index: 1000;
+    border-width: 0 0 1px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    top: 0;
+    border-width: 0 0 1px;
+    float: left !important;
+}
+
+    .navbar-harvest .navbar-inner .nav {
+        float: right;
+    }
+
+.navbar-harvest .brand {
+    color: #fff;
+    text-shadow: none;
+    padding: 5px 0 0 0;
+    margin-left: 90px;
+    font-size: 105%;
+}
+
+.navbar-harvest .logo img {
+    height: 70px;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+}
+
+.navbar-harvest .navbar-inner .nav li a {
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-shadow: none;
+    background: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: background 0.1s linear, opacity 0.1s linear;
+    -moz-transition: background 0.1s linear, opacity 0.1s linear;
+    -ms-transition: background 0.1s linear, opacity 0.1s linear;
+    -o-transition: background 0.1s linear, opacity 0.1s linear;
+    transition: background 0.1s linear, opacity 0.1s linear;
+    -webkit-font-smoothing: antialiased;
+    opacity: .9;
+    font-weight: 600;
+}
+
+    .navbar-harvest .navbar-inner .nav li a:hover {
+        color: white;
+        text-decoration: none;
+        text-shadow: 1PX 1px 5px rgba(0, 0, 0, .25);
+    }
+
+.navbar-inner a {
+    color: white;
+    text-decoration: none;
+}
+
+    .navbar-inner a:hover {
+        color: white;
+        text-decoration: none;
+        text-shadow: 1PX 1px 5px rgba(0, 0, 0, .25);
+    }
+
+@media (max-width: 768px) {
+    .navbar-inner .nav {
+        float: left !important;
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-title span {
+        display: none;
+    }
+
+    .navbar-title div:after {
+        content: "Presevi";
+    }
+}
+
+.navbar-collapse.collapse {
+    display: block !important;
+}
+
+.navbar-nav > li,
+.navbar-nav {
+    float: left !important;
+}
+
+    .navbar-nav.navbar-right:last-child {
+        margin-right: -15px !important;
+    }
+
+.navbar-right {
+    float: right !important;
+}
+
+
+/**/
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    /*line-height: 60px;*/
+    /*display:inline-flex;*/
+    -webkit-box-shadow: 0px 0px 8px 0px #000000;
+    -moz-box-shadow: 0px 0px 8px 0px #000000;
+    box-shadow: 0px 0px 8px 0px #2A0000;
+    background-color: rgba(250, 34, 34, 1);
+    color: rgba(1, 1, 1, 0.8);
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.top-bar-header {
+    text-align: center;
+    color: white;
+    font-family: 'Trebuchet MS';
+    line-height: inherit;
+    /*display:table-row;*/
+    display: inline;
+}
+
+
+#home-carousel .carousel-inner img {
+    height: 60vh;
+    width: 100%;
+    /*            object-fit: cover;*/
+    overflow: hidden;
+}
+
+.carousel-caption1 {
+    /*			background: linear-gradient(to bottom right, rgba(224, 46, 46, 0.71), rgba(217, 79, 79, 0.68)); */
+    background: linear-gradient(to bottom right, rgba(234, 18, 18, 0.77), rgba(195, 2, 2, 0.68));
+    /*            background: linear-gradient(to bottom right, rgba(255, 152, 0, 0.78), rgba(255, 152, 0, 0.74));*/
+    /*background: linear-gradient(to bottom, rgba(18, 113, 234, 0.77), rgba(31, 86, 117, 0.68));
+			background: linear-gradient(to bottom, rgba(18, 144, 234, 0.64), rgba(0, 74, 115, 0.68));*/
+    text-align: left;
+    font-size: 100%;
+    color: white;
+    position: absolute;
+    bottom: 10%;
+    width: 40%;
+    right: 10%;
+    height: 40vh;
+    z-index: 10;
+    padding: 20px;
+    overflow: hidden;
+}
+
+    .carousel-caption1 h1 {
+        /*background: rgba(115, 115, 115, 0.11);*/
+        text-shadow: 0px 0.5px 1px 1px solid black;
+        font-size: 180%;
+        margin-top: 0;
+    }
+
+.carousel-caption-custom2 {
+    left: 5%;
+    right: 50%;
+    bottom: 5%;
+}
+
+.carousel-caption-text {
+}
+
+.carousel-custom-control {
+    width: 5%;
+}
+
+.para-click-text {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-style: italic;
+}
+
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+body.fixed > .header,
+body.fixed .left-side,
+body.fixed .navbar {
+    position: fixed;
+}
+
+body.fixed > .header {
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+body.fixed .navbar {
+    left: 0;
+    right: 0;
+}
+
+body.fixed .wrapper {
+    margin-top: 50px;
+}
+
+.content-area {
+    padding-top: 20px;
+}
+
+    .content-area > h1 {
+        margin: 10px;
+        /*    display: none;*/
+        color: #666;
+    }
+
+    .content-area .content-box {
+        position: relative;
+        height: 300px;
+        box-shadow: 1px 1px 2px 2px rgba(128, 128, 128, 0.4);
+        transition: box-shadow 0.8s ease-out 0s, border-color 0.8s ease-out 0s;
+        border-top: 5px solid orange;
+        border-radius: 1px;
+        overflow: hidden;
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+
+        .content-area .content-box img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            overflow: hidden;
+        }
+
+        .content-area .content-box .content-desc {
+            position: absolute;
+            bottom: 0;
+            height: 45%;
+            width: 100%;
+            right: 0;
+            background-color: rgba(37, 37, 37, 0.53);
+            color: white;
+            padding: 15px;
+            transition: background-color 0.3s ease-in 0s;
+        }
+
+            .content-area .content-box .content-desc .desc-heading {
+                font-weight: 600;
+                font-family: sans-serif;
+            }
+
+            .content-area .content-box .content-desc .desc-writeup {
+                font-family: trebuchet ms;
+                font-size: 3.5vw;
+            }
+
+        .content-area .content-box:hover {
+            height: 300px;
+            box-shadow: 1px 1px 4px 5px rgba(128, 128, 128, 0.4);
+            border-top-color: crimson;
+        }
+
+            .content-area .content-box:hover .content-desc {
+                background-color: rgba(37, 37, 37, 0.63);
+            }
+
+
+/* 
+common
+*/
+
+.child-page .page-header-img {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+}
+
+.child-page.products-container .page-header-img {
+    width: 100%;
+    height: 150px;
+    background-image: url(../images/datacenter.png);
+}
+
+    .child-page.products-container .page-header-img .bgcolor-gradient {
+        height: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.47);
+        color: white;
+        padding-top: 20px;
+    }
+
+        .child-page.products-container .page-header-img .bgcolor-gradient h1 {
+            position: absolute;
+            bottom: 20px;
+            left: 2%;
+        }
+
+.product-detail-container {
+    margin-top: 20px;
+    background: #F9F6F0;
+    box-shadow: 1px 1px 5px 5px rgba(128, 128, 128, 0.4);
+    border-radius: 4px;
+    color: #424242;
+    font-family: arial;
+}
+
+.home-footer li {
+    list-style-type: none;
+    list-style: none;
+}
+
+.home-footer .footer-nav li {
+    border-bottom: 1px solid grey;
+}
+
+
+
+/* login page*/
+.login-error {
+    border: 2px solid red;
+    box-shadow: 0 0 3px red;
+}
+
+/* login page*/
+

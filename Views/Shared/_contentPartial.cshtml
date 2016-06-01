@@ -15,6 +15,10 @@
         <option value="clientiele">Clientile</option>
     </select>
 
+    <input type="radio" value="Create" class="form-control"/>
+    <input type="radio" value="Edit" class="form-control" />
+    <input type="radio" value="Delete" class="form-control" />
+
 </div>
 
 
@@ -25,7 +29,8 @@
     {
         <script>
             $(document).ready(function () {
-                //$('#loginDiv').fadeOut('slow');
+                var $radio = ""
+                $('#loginDiv').fadeOut('slow');
 
                 $('#contentTypeSel').show().change(function () {
                     console.log(this.value);

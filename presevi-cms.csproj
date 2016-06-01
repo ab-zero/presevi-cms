@@ -185,6 +185,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -206,6 +207,31 @@
     <Content Include="css\site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\banner\Energy.png" />
+    <Content Include="Images\banner\General.png" />
+    <Content Include="Images\banner\Hospitality.png" />
+    <Content Include="Images\banner\HVAC.png" />
+    <Content Include="Images\banner\Telecom.png" />
+    <Content Include="Images\oldies\aircond.jpg" />
+    <Content Include="Images\oldies\BattInRemotewith-signal.jpg" />
+    <Content Include="Images\oldies\blueCircuit.jpg" />
+    <Content Include="Images\oldies\controller.jpg" />
+    <Content Include="Images\oldies\datacenter.png" />
+    <Content Include="Images\oldies\greenCircuit.jpg" />
+    <Content Include="Images\oldies\solar1.jpg" />
+    <Content Include="Images\oldies\solard.jpg" />
+    <Content Include="Images\oldies\switches.jpg" />
+    <Content Include="Images\presevi-logo.png" />
+    <Content Include="Images\product-detail\ac1.png" />
+    <Content Include="Images\product-header\bms1.jpg" />
+    <Content Include="Images\product-header\bms2.jpg" />
+    <Content Include="Images\product-header\Energy1.jpg" />
+    <Content Include="Images\product-header\Energy2.jpg" />
+    <Content Include="Images\product-header\hospitality1.jpg" />
+    <Content Include="Images\product-header\hospitality2.jpg" />
+    <Content Include="Images\product-header\hvac1.jpg" />
+    <Content Include="Images\product-header\hvac2.jpg" />
+    <Content Include="Images\product-header\hvac3.jpg" />
     <Content Include="lib\bootstrap\css\bootstrap.min.css" />
     <Content Include="lib\bootstrap\css\googlefonts.css" />
     <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
@@ -316,7 +342,7 @@
     <Content Include="lib\materialize\font\roboto\Roboto-Thin.woff2" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\ContentManage.cshtml" />
+    <Content Include="Views\Content\ContentManage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_createPartial.cshtml" />
@@ -325,7 +351,22 @@
     <Content Include="Views\Shared\_contentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\_LoginPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Content\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Content\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Content\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Content\GetData.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

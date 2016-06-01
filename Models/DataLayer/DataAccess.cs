@@ -34,7 +34,7 @@ namespace presevi_cms.Models.DataLayer
         {
 
             string query = "SELECT Count(*) FROM tblUserProfile where UserName=@user and password=@password;";
-            
+
             object value = null;
             using (SqlConnection con = new SqlConnection(this.ConnectionString))
             {
@@ -56,6 +56,43 @@ namespace presevi_cms.Models.DataLayer
                 return false;
             }
         }
+
+
+        public void CreateImageContent(PreseviDataModel imageContent)
+        {
+            int maxId, maxSequence;
+            string query = string.Empty;
+
+            maxId = GetMaxId("tblImageContent", "Id") + 1;
+            maxSequence = GetMaxId("tblImageContent", "Sequence") + 1;
+            query = "INSERT INTO [tblImageContent]([Id],[ContentType], [TargetUrl], [ImageUrl], [AltText], [Header], [Content], [Sequence])VALUES(" +
+                maxId + ",'" + imageContent.ContentType + "','" + imageContent.TargetUrl + "','" + imageContent.ImageUrl + "','" +
+                imageContent.ImageAltText + "','" + imageContent.ImageHeader + "','" + imageContent.Description + "'," + maxSequence + ");";
+
+            ExecuteNonQuery(query);
+        }
+
+        public void EditImageContent(PreseviDataModel imageContent)
+        {
+            string query = string.Empty;
+            query = String.Format("Update [tblImageContent] set [ContentType] = {0}, [TargetUrl] ={1}, [ImageUrl]={2}, [AltText]={3}, [Header]={4}, [Content]={5}, [Sequence]={6} where Id = {7}",
+                imageContent.ContentType, imageContent.TargetUrl, imageContent.ImageUrl, imageContent.ImageAltText, imageContent.ImageHeader, imageContent.Description, imageContent.Sequence, imageContent.Id);
+
+            ExecuteNonQuery(query);
+        }
+
+        public void DeleteImageContent(PreseviDataModel imageContent)
+        {
+            int maxId, maxSequence;
+            string query = string.Empty;
+
+            maxId = GetMaxId("tblImageContent", "Id") + 1;
+            maxSequence = GetMaxId("tblImageContent", "Sequence") + 1;
+            query = "Delete [tblImageContent] where Id = " + imageContent.Id;
+
+            ExecuteNonQuery(query);
+        }
+
 
         private int GetMaxId(string tableName, string colName)
         {
@@ -98,16 +135,16 @@ namespace presevi_cms.Models.DataLayer
             return value;
         }
 
-        //private void ExecuteNonQuery(string query)
-        //{
-        //    using (SQLiteConnection con = new SQLiteConnection(this.ConnectionString))
-        //    {
-        //        con.Open();
-        //        SQLiteCommand cmd = con.CreateCommand();
-        //        cmd.CommandText = query;
-        //        cmd.ExecuteNonQuery();
-        //        con.Close();
-        //    }
-        //}
+        private void ExecuteNonQuery(string query)
+        {
+            using (SqlConnection con = new SqlConnection(this.ConnectionString))
+            {
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = query;
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
     }
 }

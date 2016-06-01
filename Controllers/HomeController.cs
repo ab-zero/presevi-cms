@@ -13,8 +13,9 @@ namespace presevi_cms.Controllers
         public ActionResult Index()
         {
             Business business = new Business();
-            ViewBag.BannerList = business.GetContent("BANNER");
-
+            ViewBag.BannerList = business.GetContent("banner");
+            ViewBag.ProductCategoryList = business.GetContent("product-category");
+            ViewBag.ClientileList = business.GetContent("clientile");
             return View();
         }
 
@@ -32,44 +33,13 @@ namespace presevi_cms.Controllers
             return View();
         }
 
-        public ActionResult ContentManage()
-        {
-            ViewBag.isAuthenticated = false;
-            ViewBag.Message = "Your contact page.";
+        
 
-            return View();
-        }
-
-
-
-        public ActionResult _LoginPartial()
-        {
-            LoginModel model = new LoginModel();
-            return PartialView(model);
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult _LoginPartial(LoginModel model)
-        {
-            Business business = new Business();
-            ViewBag.isAuthenticated = false;
-            if (ModelState.IsValid && business.AuthenticateUser(model.UserName, model.Password))
-            {
-                ViewBag.isAuthenticated = true;
-                return PartialView("_contentPartial");
-            }
-            else
-            {
-                ModelState.AddModelError("", "The user name or password provided is incorrect.");
-                return PartialView(model);
-            }
-            
-            
-        }
 
         
+        
+
+
 
 
     }

@@ -21,28 +21,27 @@ namespace presevi_cms.Models
 
     public class PreseviDataModel
     {
-        [Required]
+
         public int Id { get; set; }
 
         [Required]
         public string ContentType { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Target url is Missing")]
         public string TargetUrl { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Image url is Missing")]
         public string ImageUrl { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="ImageAltText is Missing")]
         public string ImageAltText { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Image Header is Missing")]
         public string ImageHeader { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Description is Missing")]
         public string Description { get; set; }
 
-        [Required]
         public int Sequence { get; set; }
 
     }

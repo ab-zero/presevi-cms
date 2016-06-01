@@ -16,7 +16,7 @@ namespace presevi_cms
             routes.MapRoute(
                 name: "ContentManage",
                 url: "ContentManage",
-                defaults: new { controller = "Home", action = "ContentManage", id = UrlParameter.Optional }
+                defaults: new { controller = "Content", action = "ContentManage", id = UrlParameter.Optional }
             );
             routes.MapRoute(
                 name: "About",
@@ -30,10 +30,18 @@ namespace presevi_cms
             );
 
             routes.MapRoute(
+               name: "content",
+               url: "{controller}/{action}/{contentType}",
+               defaults: new { controller = "Home", action = "Index", contentType = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            
 
             
         }

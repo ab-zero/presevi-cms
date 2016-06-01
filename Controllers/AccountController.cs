@@ -10,60 +10,39 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using presevi_cms.Filters;
 using presevi_cms.Models;
+using presevi_cms.Models.DataLayer;
 
 namespace presevi_cms.Controllers
 {
-    [Authorize]
-    [InitializeSimpleMembership]
+    
     public class AccountController : Controller
     {
         //
         // GET: /Account/Login
 
-        [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login()
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            LoginModel model = new LoginModel();
+            return View("Login", model);
         }
 
-        //
-        // POST: /Account/Login
-
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password))
+            Business business = new Business();
+            ViewBag.isAuthenticated = false;
+            if (ModelState.IsValid && business.AuthenticateUser(model.UserName, model.Password))
             {
-                return RedirectToLocal(returnUrl);
+                System.Web.Security.FormsAuthentication.SetAuthCookie(model.UserName, false);
+
+                return Redirect(returnUrl);
+                //return RedirectToAction("ContentManage");
             }
-
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
-            return View(model);
-        }
-
-        //
-        // POST: /Account/LogOff
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult LogOff()
-        {
-            WebSecurity.Logout();
-
-            return RedirectToAction("Index", "Home");
-        }
-
-        //
-        // GET: /Account/Register
-
-        [AllowAnonymous]
-        public ActionResult Register()
-        {
-            return View();
+            else
+            {
+                ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                return View(model);
+            }
         }
 
        

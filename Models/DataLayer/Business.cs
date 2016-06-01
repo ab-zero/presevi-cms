@@ -44,6 +44,45 @@ namespace presevi_cms.Models.DataLayer
 
         }
 
+        public string CreateImageContent(PreseviDataModel imageContent)
+        {
+            try
+            {
+                dataAccess.CreateImageContent(imageContent);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string EditImageContent(PreseviDataModel imageContent)
+        {
+            try
+            {
+                dataAccess.EditImageContent(imageContent);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string DeleteImageContent(PreseviDataModel imageContent)
+        {
+            try
+            {
+                dataAccess.DeleteImageContent(imageContent);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public bool AuthenticateUser(string userName, string password)
         {
             return dataAccess.Authenticate(userName, password);

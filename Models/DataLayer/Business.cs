@@ -14,15 +14,15 @@ namespace presevi_cms.Models.DataLayer
             dataAccess = new DataAccess();
         }
 
-        public List<PreseviDataModel> GetContent(string contentType){
-            List<PreseviDataModel> lstContent = new List<PreseviDataModel>();
+        public List<BannerClientileModel> GetContent(string contentType){
+            List<BannerClientileModel> lstContent = new List<BannerClientileModel>();
             using (DataSet ds = dataAccess.GetData(contentType))
             {
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     foreach (DataRow dataRow in ds.Tables[0].Rows)
                     {
-                        PreseviDataModel content = new PreseviDataModel()
+                        BannerClientileModel content = new BannerClientileModel()
                         {
                             
                             Id = Helper.ConvertToInt(dataRow["Id"]),
@@ -44,11 +44,11 @@ namespace presevi_cms.Models.DataLayer
 
         }
 
-        public string CreateImageContent(PreseviDataModel imageContent)
+        public string CreateBannerClientileContent(BannerClientileModel imageContent)
         {
             try
             {
-                dataAccess.CreateImageContent(imageContent);
+                dataAccess.CreateBannerClientile(imageContent);
                 return "OK";
             }
             catch (Exception ex)
@@ -57,7 +57,33 @@ namespace presevi_cms.Models.DataLayer
             }
         }
 
-        public string EditImageContent(PreseviDataModel imageContent)
+        public string CreateProductCategory(ProductCategoryModel imageContent)
+        {
+            try
+            {
+                dataAccess.CreateProductCategory(imageContent);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string CreateProductDetail(ProductDetailModel imageContent)
+        {
+            try
+            {
+                dataAccess.CreateProductDetail(imageContent);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string EditImageContent(BannerClientileModel imageContent)
         {
             try
             {
@@ -70,7 +96,7 @@ namespace presevi_cms.Models.DataLayer
             }
         }
 
-        public string DeleteImageContent(PreseviDataModel imageContent)
+        public string DeleteImageContent(BannerClientileModel imageContent)
         {
             try
             {

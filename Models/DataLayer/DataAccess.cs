@@ -58,21 +58,52 @@ namespace presevi_cms.Models.DataLayer
         }
 
 
-        public void CreateImageContent(PreseviDataModel imageContent)
+        public void CreateBannerClientile(BannerClientileModel imageContent)
         {
             int maxId, maxSequence;
             string query = string.Empty;
 
             maxId = GetMaxId("tblImageContent", "Id") + 1;
-            maxSequence = GetMaxId("tblImageContent", "Sequence") + 1;
-            query = "INSERT INTO [tblImageContent]([Id],[ContentType], [TargetUrl], [ImageUrl], [AltText], [Header], [Content], [Sequence])VALUES(" +
+            maxSequence = GetMaxSequence("tblImageContent", "Sequence", imageContent.ContentType) + 1;
+            query = "INSERT INTO [tblImageContent]([Id],[ContentType], [TargetUrl], [ImageUrl], [AltText], [Header], [Content], [Tags] [Sequence])VALUES(" +
                 maxId + ",'" + imageContent.ContentType + "','" + imageContent.TargetUrl + "','" + imageContent.ImageUrl + "','" +
-                imageContent.ImageAltText + "','" + imageContent.ImageHeader + "','" + imageContent.Description + "'," + maxSequence + ");";
+                imageContent.ImageAltText + "','" + imageContent.ImageHeader + "','" + imageContent.Description + "'," + imageContent.Tags + "'," + maxSequence + ");";
 
             ExecuteNonQuery(query);
         }
 
-        public void EditImageContent(PreseviDataModel imageContent)
+        public void CreateProductCategory(ProductCategoryModel productCategory)
+        {
+            int maxId, maxSequence;
+            string query = string.Empty;
+
+            maxId = GetMaxId("tblProductCategory", "Id") + 1;
+            maxSequence = GetMaxSequence("tblProductCategoryContent", "Sequence", productCategory.ContentType) + 1;
+            query = "INSERT INTO [tblProductCategoryContent]([Id],[ContentType], [ImageUrl], [ImageAltText],[ProductCategory], [Description],[PageContent], [Tags], [Sequence])VALUES(" +
+                maxId + ",'" + productCategory.ContentType +  "','" + productCategory.ImageUrl + "','" +
+                productCategory.ImageAltText + "','" + productCategory.ProductCategory + "','" + productCategory.Description +
+                "','" + productCategory.PageContent + "','" + productCategory.Tags + "'," + maxSequence + ");";
+
+            ExecuteNonQuery(query);
+        }
+
+        public void CreateProductDetail(ProductDetailModel productDetail)
+        {
+            int maxId, maxSequence;
+            string query = string.Empty;
+
+            maxId = GetMaxId("tblProductDetail", "Id") + 1;
+            maxSequence = GetMaxSequence("tblProductDetail", "Sequence", productDetail.ContentType) + 1;
+            query = "INSERT INTO [tblProductDetail]([Id],[ContentType], [ImageUrl], [ImageAltText], [ProductName], [ProductCategory]," +
+                "[ImageHeader], [Description], [PageContent], [Tags], [Sequence])VALUES(" +
+                maxId + ",'" + productDetail.ContentType + "','" +  productDetail.ImageUrl + "','" +
+                productDetail.ImageAltText + "','" + productDetail.ProductName + "','" + productDetail.ProductCategory + "','" +
+                productDetail.Description + "','" + productDetail.PageContent + "','" + productDetail.Tags + "'," + maxSequence + ");";
+
+            ExecuteNonQuery(query);
+        }
+
+        public void EditImageContent(BannerClientileModel imageContent)
         {
             string query = string.Empty;
             query = String.Format("Update [tblImageContent] set [ContentType] = {0}, [TargetUrl] ={1}, [ImageUrl]={2}, [AltText]={3}, [Header]={4}, [Content]={5}, [Sequence]={6} where Id = {7}",
@@ -81,22 +112,26 @@ namespace presevi_cms.Models.DataLayer
             ExecuteNonQuery(query);
         }
 
-        public void DeleteImageContent(PreseviDataModel imageContent)
+        public void DeleteImageContent(BannerClientileModel imageContent)
         {
             int maxId, maxSequence;
             string query = string.Empty;
 
             maxId = GetMaxId("tblImageContent", "Id") + 1;
-            maxSequence = GetMaxId("tblImageContent", "Sequence") + 1;
+            maxSequence = GetMaxSequence("tblImageContent", "Sequence", imageContent.ContentType) + 1;
             query = "Delete [tblImageContent] where Id = " + imageContent.Id;
 
             ExecuteNonQuery(query);
         }
-
-
         private int GetMaxId(string tableName, string colName)
         {
             string query = "SELECT MAX(" + colName + ") FROM [" + tableName + "];";
+            return Helper.ConvertToInt(ExecuteScalar(query));
+        }
+
+        private int GetMaxSequence(string tableName, string colName, string contentType)
+        {
+            string query = "SELECT MAX(" + colName + ") FROM [" + tableName + "] where ContentType='" + contentType + "';";
             return Helper.ConvertToInt(ExecuteScalar(query));
         }
 

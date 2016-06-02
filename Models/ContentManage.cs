@@ -12,9 +12,9 @@ namespace presevi_cms.Models
 {
     public class contentManage
     {
-        public List<PreseviDataModel> contentList = new List<PreseviDataModel>();
+        public List<BannerClientileModel> contentList = new List<BannerClientileModel>();
 
-        public List<PreseviDataModel> getContent(string contentType)
+        public List<BannerClientileModel> getContent(string contentType)
         {
             var content = contentList.FindAll(a => a.ContentType == contentType)
                 .OrderBy(a => a.Sequence).ToList();

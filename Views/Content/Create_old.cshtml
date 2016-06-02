@@ -1,20 +1,21 @@
-﻿@model presevi_cms.Models.PreseviDataModel
+﻿@model presevi_cms.Models.BannerClientileModel
 
-<script src="~/Scripts/jquery-1.8.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+@*<script src="~/lib/jquery/jquery-1.8.2.min.js"></script>
+<script src="~/lib/jquery/jquery.validate.min.js"></script>
+<script src="~/lib/jquery/jquery.validate.unobtrusive.min.js"></script>*@
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>PreseviDataModel</legend>
 
-        <div class="editor-label">
+        <h4>Create Banner</h4>
+
+        <div class="editor-label hidden"  >
             @Html.LabelFor(model => model.ContentType)
         </div>
-        <div class="editor-field">
+        <div class="editor-field hidden" >
             @Html.EditorFor(model => model.ContentType)
             @Html.ValidationMessageFor(model => model.ContentType)
         </div>
@@ -68,11 +69,9 @@
         </div>*@
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Create" class="btn btn-primary btn-block"/>
         </p>
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+

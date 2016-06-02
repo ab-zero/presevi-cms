@@ -21,12 +21,12 @@ namespace presevi_cms.Controllers
             return View();
         }
 
-        public PartialViewResult GetData(string contentType)
+        public PartialViewResult GetData(string name)
         {
             return PartialView(imageModel);
         }
 
-        public PartialViewResult Create(string contentType)
+        public PartialViewResult Create(string name)
         {
             return PartialView(imageModel);
         }

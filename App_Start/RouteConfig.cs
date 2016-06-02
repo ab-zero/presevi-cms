@@ -14,10 +14,19 @@ namespace presevi_cms
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+               name: "content",
+               url: "{controller}/{action}/{name}",
+               defaults: new { controller = "Home", action = "Index", name = "" }
+           );
+
+
+            routes.MapRoute(
                 name: "ContentManage",
                 url: "ContentManage",
                 defaults: new { controller = "Content", action = "ContentManage", id = UrlParameter.Optional }
             );
+
+
             routes.MapRoute(
                 name: "About",
                 url: "About",
@@ -29,11 +38,13 @@ namespace presevi_cms
                 defaults: new { controller = "Home", action = "Contact", id = UrlParameter.Optional }
             );
 
-            routes.MapRoute(
-               name: "content",
-               url: "{controller}/{action}/{contentType}",
-               defaults: new { controller = "Home", action = "Index", contentType = UrlParameter.Optional }
-           );
+
+            //routes.Add("ProductDetails", new SeoFriendlyRoute("products/details/{id}",
+            //   new RouteValueDictionary(new { controller = "Products", action = "Details" }),
+            //   new MvcRouteHandler()));
+
+
+            
 
             routes.MapRoute(
                 name: "Default",
@@ -41,9 +52,9 @@ namespace presevi_cms
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
-            
 
-            
+
+
         }
     }
 }

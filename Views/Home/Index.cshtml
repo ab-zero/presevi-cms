@@ -61,37 +61,37 @@
 
 
     </div>
+}
 
-
-    <div class="container-fluid">
-        <div class="row content-area">
-            <h1>Products Categories</h1>
-            @{
-                foreach (var productCategory in ViewBag.ProductCategoryList)
-                {
-                    <a href="@productCategory.TargetUrl" class="col-lg-5ths col-md-6 col-sm-12 col-xs-12">
-                        <div class="content-box content-four">
-                            <img src="@productCategory.ImageUrl" class="img-responsive" />
-                            <div class="content-desc">
-                                <p class="desc-heading">@productCategory.ImageHeader</p>
-                                <p class="desc-writeup">@productCategory.Description</p>
-                            </div>
+<div class="container-fluid">
+    <div class="row content-area">
+        <h1>Products Categories</h1>
+        @{
+            foreach (var productCategory in ViewBag.ProductCategoryList)
+            {
+                <a href="@productCategory.TargetUrl" class="col-lg-5ths col-md-6 col-sm-12 col-xs-12">
+                    <div class="content-box content-four">
+                        <img src="@productCategory.ImageUrl" class="img-responsive" />
+                        <div class="content-desc">
+                            <p class="desc-heading">@productCategory.ImageHeader</p>
+                            <p class="desc-writeup">@productCategory.Description</p>
                         </div>
-                    </a>
-                }
+                    </div>
+                </a>
             }
+        }
 
 
-        </div>
     </div>
+</div>
 
 
 
-    @section Scripts {
+@section Scripts {
 
-        <script>
-            $(document).ready(function () {
-                $('.carousel-inner div.item:first').addClass('active');
-            });
-        </script>
-    }
+    <script>
+        $(document).ready(function () {
+            $('.carousel-inner div.item:first').addClass('active');
+        });
+    </script>
+}

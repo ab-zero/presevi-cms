@@ -187,12 +187,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ContentManage.cs" />
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\ContentModel.cs" />
     <Compile Include="Models\DataLayer\Business.cs" />
     <Compile Include="Models\DataLayer\DataAccess.cs" />
@@ -367,6 +369,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Content\GetData.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\Category.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\Detail.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

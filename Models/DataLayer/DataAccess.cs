@@ -24,10 +24,22 @@ namespace presevi_cms.Models.DataLayer
             return System.Configuration.ConfigurationManager.ConnectionStrings["ContentDataConnection"].ToString(); ;
         }
 
-        public DataSet GetData(string contentType)
+        public DataSet GetBannerClientileData(string contentType)
         {
-            string query = "select ID,ContentType, TargetUrl, ImageUrl, AltText, Header, Content, Sequence from tblImageContent where ContentType = '" + contentType + "'";
-            return ExecuteDataSet(query, "tblImageContent");
+            string query = "select ID,ContentType, TargetUrl, ImageUrl, ImageAltText, ImageHeader, Description, tags, Sequence from tblBannerCLientile where ContentType = '" + contentType + "'";
+            return ExecuteDataSet(query, "tblBannerCLientile");
+        }
+
+        public DataSet GetProductCategoryCData(string contentType)
+        {
+            string query = "select Id, ContentType, ImageUrl, ImageAltText, ProductCategory, ImageHeader, Description, PageContent, Tags, Sequence from tblProductCategory";
+            return ExecuteDataSet(query, "tblProductCategory");
+        }
+
+        public DataSet GetProductDetailData(string contentType)
+        {
+            string query = "select Id, ContentType, ImageUrl, ImageAltText, ProductCategory, Description, PageContent, Tags, Sequence from tblProductDetail";
+            return ExecuteDataSet(query, "tblProductDetail");
         }
 
         public bool Authenticate(string userName, string password)
@@ -63,11 +75,11 @@ namespace presevi_cms.Models.DataLayer
             int maxId, maxSequence;
             string query = string.Empty;
 
-            maxId = GetMaxId("tblImageContent", "Id") + 1;
-            maxSequence = GetMaxSequence("tblImageContent", "Sequence", imageContent.ContentType) + 1;
-            query = "INSERT INTO [tblImageContent]([Id],[ContentType], [TargetUrl], [ImageUrl], [AltText], [Header], [Content], [Tags] [Sequence])VALUES(" +
+            maxId = GetMaxId("tblBannerClientile", "Id") + 1;
+            maxSequence = GetMaxSequence("tblBannerClientile", "Sequence", imageContent.ContentType) + 1;
+            query = "INSERT INTO [tblBannerClientile]([Id],[ContentType], [TargetUrl], [ImageUrl], [ImageAltText], [ImageHeader], [Description], [Tags], [Sequence])VALUES(" +
                 maxId + ",'" + imageContent.ContentType + "','" + imageContent.TargetUrl + "','" + imageContent.ImageUrl + "','" +
-                imageContent.ImageAltText + "','" + imageContent.ImageHeader + "','" + imageContent.Description + "'," + imageContent.Tags + "'," + maxSequence + ");";
+                imageContent.ImageAltText + "','" + imageContent.ImageHeader + "','" + imageContent.Description + "','" + imageContent.Tags + "'," + maxSequence + ");";
 
             ExecuteNonQuery(query);
         }
@@ -78,8 +90,8 @@ namespace presevi_cms.Models.DataLayer
             string query = string.Empty;
 
             maxId = GetMaxId("tblProductCategory", "Id") + 1;
-            maxSequence = GetMaxSequence("tblProductCategoryContent", "Sequence", productCategory.ContentType) + 1;
-            query = "INSERT INTO [tblProductCategoryContent]([Id],[ContentType], [ImageUrl], [ImageAltText],[ProductCategory], [Description],[PageContent], [Tags], [Sequence])VALUES(" +
+            maxSequence = GetMaxSequence("tblProductCategory", "Sequence", productCategory.ContentType) + 1;
+            query = "INSERT INTO [tblProductCategory]([Id],[ContentType], [ImageUrl], [ImageAltText],[ProductCategory], [Description],[PageContent], [Tags], [Sequence])VALUES(" +
                 maxId + ",'" + productCategory.ContentType +  "','" + productCategory.ImageUrl + "','" +
                 productCategory.ImageAltText + "','" + productCategory.ProductCategory + "','" + productCategory.Description +
                 "','" + productCategory.PageContent + "','" + productCategory.Tags + "'," + maxSequence + ");";

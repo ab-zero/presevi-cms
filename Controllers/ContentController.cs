@@ -82,47 +82,119 @@ namespace presevi_cms.Controllers
                 // todo ajax call from client
                 // post json
                 // deserialize and update in controller
-                
+
                 switch (name.ToUpper())
                 {
                     case "BANNER":
-                        BannerClientileModel newObj = new BannerClientileModel();
+                        BannerClientileModel bcObj = new BannerClientileModel();
                         //IEnumerable enumerable = (IEnumerable)newObj;
-                        IList collection = (IList)newObj;
-                        int i = 0;
-                        foreach (var prop in collection)
-                        {
-                            collection[i] = Request[prop];
-                            i++;
-                        }
-                        var result = business.CreateBannerClientileContent(newImage);
-                        return PartialView();
-                    case "CLIENTILE":
-                        ViewBag.Model = bannerClientModel;
-                        return PartialView();
-                    case "PRODUCT-CATEGORY":
-                        ViewBag.Model = productCategoryModel;
-                        return PartialView();
-                    case "PRODUCT":
-                        ViewBag.Model = productDetailModel;
-                        return PartialView();
-                    default:
-                        ViewBag.Mesage = "No View Found";
-                        ViewBag.Model = null;
-                        return PartialView();
-                }
+                        bcObj.ContentType = name;
+                        bcObj.Description = Request["Description"];
+                        bcObj.ImageAltText = Request["ImageAltText"];
+                        bcObj.ImageHeader = Request["ImageHeader"];
+                        bcObj.ImageUrl = Request["ImageUrl"];
+                        bcObj.Tags = Request["Tags"];
+                        bcObj.TargetUrl = Request["TargetUrl"];
 
-                ViewBag.ModelContent = newImage;
-                ViewBag.ActionMessage = "This " + name + " is Created and is inserted in Content Management Database";
-                ViewBag.Mode = "return";
-                //return Redirect("/contentManage?mode=return");
-                return View("ContentManage");
+                        if (business.CreateBannerClientileContent(bcObj) == "OK")
+                        {
+                            ViewBag.ModelContent = bcObj;
+                            ViewBag.ActionMessage = "This " + name + " is Created and is inserted in Content Management Database";
+                            ViewBag.Mode = "return";
+                        }
+                        else
+                        {
+                            ViewBag.ActionMessage = "Error While Creating. Contact administrator!";
+                            ViewBag.Model = null;
+                        }
+
+                        return View("ContentManage");
+
+                    case "CLIENTILE":
+                        BannerClientileModel clObj = new BannerClientileModel();
+                        //IEnumerable enumerable = (IEnumerable)newObj;
+                        clObj.ContentType = name;
+                        clObj.Description = Request["Description"];
+                        clObj.ImageAltText = Request["ImageAltText"];
+                        clObj.ImageHeader = Request["ImageHeader"];
+                        clObj.ImageUrl = Request["ImageUrl"];
+                        clObj.Tags = Request["Tags"];
+                        clObj.TargetUrl = Request["TargetUrl"];
+
+                        if (business.CreateBannerClientileContent(clObj) == "OK")
+                        {
+                            ViewBag.ModelContent = clObj;
+                            ViewBag.ActionMessage = "This " + name + " is Created and is inserted in Content Management Database";
+                            ViewBag.Mode = "return";
+                        }
+                        else
+                        {
+                            ViewBag.ActionMessage = "Error While Creating. Contact administrator!";
+                            ViewBag.Model = null;
+                        }
+
+                        return View("ContentManage");
+                    case "PRODUCT-CATEGORY":
+                        ProductCategoryModel pcObj = new ProductCategoryModel();
+                        //IEnumerable enumerable = (IEnumerable)newObj;
+                        pcObj.ContentType = name;
+                        pcObj.Description = Request["Description"];
+                        pcObj.ImageAltText = Request["ImageAltText"];
+                        pcObj.ImageUrl = Request["ImageUrl"];
+                        pcObj.PageContent = Request["PageContent"];
+                        pcObj.ProductCategory = Request["ProductCategory"];
+                        pcObj.Tags = Request["Tags"];
+
+                        if (business.CreateProductCategory(pcObj) == "OK")
+                        {
+                            ViewBag.ModelContent = pcObj;
+                            ViewBag.ActionMessage = "This " + name + " is Created and is inserted in Content Management Database";
+                            ViewBag.Mode = "return";
+                        }
+                        else
+                        {
+                            ViewBag.ActionMessage = "Error While Creating. Contact administrator!";
+                            ViewBag.Model = null;
+                        }
+
+                        return View("ContentManage");
+                    case "PRODUCT":
+                        ProductDetailModel pdObj = new ProductDetailModel();
+                        //IEnumerable enumerable = (IEnumerable)newObj;
+                        pdObj.ContentType = name;
+                        pdObj.Description = Request["Description"];
+                        pdObj.ImageAltText = Request["ImageAltText"];
+                        pdObj.ImageUrl = Request["ImageUrl"];
+                        pdObj.PageContent = Request["PageContent"];
+                        pdObj.ProductCategory = Request["ProductCategory"];
+                        pdObj.ProductName = Request["ProductName"];
+                        pdObj.Tags = Request["Tags"];
+
+                        if (business.CreateProductDetail(pdObj) == "OK")
+                        {
+                            ViewBag.ModelContent = pdObj;
+                            ViewBag.ActionMessage = "This " + name + " is Created and is inserted in Content Management Database";
+                            ViewBag.Mode = "return";
+                        }
+                        else
+                        {
+                            ViewBag.ActionMessage = "Error While Creating. Contact administrator!";
+                            ViewBag.Model = null;
+                        }
+
+                        return View("ContentManage");
+                    default:
+                        ViewBag.ActionMessage = "No View Found";
+                        ViewBag.Model = null;
+                        return View("ContentManage");
+                }
             }
             catch
             {
                 return View(bannerClientModel);
             }
         }
+
 
         //
         // GET: /Content/Edit/5

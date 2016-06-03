@@ -4,26 +4,33 @@
     @Html.ValidationSummary(true)
 
 
-    <div class="container" style="margin:30px 0px;">
+    <div class="container" id="createContent" data-content-type="@ViewBag.ContentType" style="margin:30px 0px;">
         <fieldset>
-            <h3>Creat @ViewBag.ContentType</h3>
+            <h3>Create @ViewBag.ContentType</h3>
 
             @{
-    foreach (var property in ViewBag.Model.GetType().GetProperties())
+    if (ViewBag.Model == null)
     {
-        if (property.Name.ToUpper() != "ID" && property.Name.ToUpper() != "SEQUENCE" && property.Name.ToUpper() != "CONTENTTYPE")
+
+    }
+    else
+    {
+        foreach (var property in ViewBag.Model.GetType().GetProperties())
         {
-            <div class="editor-label">
-                <label for="@property.Name">@property.Name</label>
-            </div>
+            if (property.Name.ToUpper() != "ID" && property.Name.ToUpper() != "SEQUENCE" && property.Name.ToUpper() != "CONTENTTYPE")
+            {
+                <div class="editor-label">
+                    <label for="@property.Name">@property.Name</label>
+                </div>
                 <div class="editor-field">
                     <input id="@property.Name" class="text-box single-line" type="text" value="" name="@property.Name" data-val-required="The ContentType field is required." data-val="true">
                     <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="@property.Name"></span>
                 </div>
+            }
+
+
+
         }
-
-
-
     }
             }
             <p>
@@ -32,4 +39,16 @@
         </fieldset>
     </div>
 }
+
+
+<script>
+    $(document).ready(function () {
+        var contentType = $('#createContent').attr('data-content-type');
+        if (contentType.indexOf('product') > -1) {
+            $('#PageContent').summernote()
+        }
+
+    });
+
+</script>
 

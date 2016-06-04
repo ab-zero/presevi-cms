@@ -34,7 +34,7 @@
     }
             }
             <p>
-                <input type="submit" value="Create" class="btn btn-primary btn-block" />
+                <input id="btnSubmit" type="submit" value="Create" class="btn btn-primary btn-block" />
             </p>
         </fieldset>
     </div>
@@ -45,8 +45,13 @@
     $(document).ready(function () {
         var contentType = $('#createContent').attr('data-content-type');
         if (contentType.indexOf('product') > -1) {
-            $('#PageContent').summernote()
+            $('#PageContent').summernote();
         }
+
+        $('#btnSubmit').click(function () {
+            $('#PageContent').val(encodeURIComponent($('#PageContent').code()));
+
+        });
 
     });
 

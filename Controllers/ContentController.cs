@@ -141,7 +141,7 @@ namespace presevi_cms.Controllers
                         pcObj.Description = Request["Description"];
                         pcObj.ImageAltText = Request["ImageAltText"];
                         pcObj.ImageUrl = Request["ImageUrl"];
-                        pcObj.PageContent = Request["PageContent"];
+                        pcObj.PageContent = Uri.UnescapeDataString(Request["PageContent"]);
                         pcObj.ProductCategory = Request["ProductCategory"];
                         pcObj.Tags = Request["Tags"];
 

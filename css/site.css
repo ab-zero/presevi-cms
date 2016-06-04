@@ -7,29 +7,25 @@
         height: 30px;
     }
 
+.navbar-harvest {
+    margin-bottom: 0px;
+}
+
 .navbar-harvest .navbar-inner .navbar-header {
     padding-top: 18px;
-    font-size: 180%;
-    font-family: "Trebuchet MS", arial, monospace;
+    
 }
 
 .navbar-harvest .navbar-inner {
     height: 70px;
-    background: #192156;
-    background: -webkit-linear-gradient(top, #2C3361, #192156);
-    background: -webkit-linear-gradient(top, #2C3361, #192156);
-    background: -webkit-linear-gradient(top, rgba(38, 41, 60, 0.9), rgba(38, 41, 60, 0.85));
-    background: -webkit-linear-gradient(top, rgba(255, 87, 34, 0.82), rgba(255, 87, 34, 0.92));
-    background: -webkit-linear-gradient(top, rgba(43, 43, 43, 0.95), #000000);
-    background: -moz-linear-gradient(top, #2C3361, #192156);
-    background: -o-linear-gradient(top, #2C3361, #192156);
-    background: -ms-linear-gradient(top, #2C3361, #192156);
-    background: linear-gradient(top, #2C3361, #192156);
-    -webkit-box-shadow: 0px 0px 8px 0px #000000;
-    -moz-box-shadow: 0px 0px 8px 0px #000000;
-    box-shadow: 0px 0px 8px 0px #2A0000;
-    /*background-color: rgba(250, 34, 34, 1);*/
-    color: rgba(1, 1, 1, 0.8);
+    background: RGB(244, 251, 251);
+    background: -webkit-linear-gradient(top, RGB(244, 251, 251), RGB(231, 231, 231));
+    background: -moz-linear-gradient(top, RGB(244, 251, 251), RGB(231, 231, 231));
+    background: -o-linear-gradient(top, RGB(244, 251, 251), RGB(231, 231, 231));
+    background: -ms-linear-gradient(top, RGB(244, 251, 251), RGB(231, 231, 231));
+    background: linear-gradient(top, RGB(244, 251, 251), RGB(231, 231, 231));
+    -webkit-box-shadow: 0px 0px 8px 0px RGBA(155, 155, 155, 0.75);
+    box-shadow: 0px 0px 8px 0px RGBA(155, 155, 155, 0.75);
     z-index: 1000;
     border-width: 0 0 1px;
     position: fixed;
@@ -46,12 +42,23 @@
     }
 
 .navbar-harvest .brand {
-    color: #fff;
     text-shadow: none;
     padding: 5px 0 0 0;
     margin-left: 90px;
-    font-size: 105%;
+    font-size: 26px;
+    color: #33adc2;
+    -webkit-transition: text-shadow 0.3s linear;
+    -moz-transition: text-shadow 0.3s linear;
+    -ms-transition: text-shadow 0.3s linear;
+    -o-transition: text-shadow 0.3s linear;
+    transition: text-shadow 0.3s linear;
+    -webkit-font-smoothing: antialiased;
 }
+
+    .navbar-harvest .brand:hover {
+        text-decoration: none;
+        text-shadow: 1PX 1px 5px rgba(0, 0, 0, .12);
+    }
 
 .navbar-harvest .logo img {
     height: 70px;
@@ -62,40 +69,29 @@
 }
 
 .navbar-harvest .navbar-inner .nav li a {
-    color: #fff;
     padding-top: 20px;
     padding-bottom: 20px;
     text-shadow: none;
     background: none;
+    color: #33adc2;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    -webkit-transition: background 0.1s linear, opacity 0.1s linear;
-    -moz-transition: background 0.1s linear, opacity 0.1s linear;
-    -ms-transition: background 0.1s linear, opacity 0.1s linear;
-    -o-transition: background 0.1s linear, opacity 0.1s linear;
-    transition: background 0.1s linear, opacity 0.1s linear;
+    -webkit-transition: text-shadow 0.3s linear;
+    -moz-transition: text-shadow 0.3s linear;
+    -ms-transition: text-shadow 0.3s linear;
+    -o-transition: text-shadow 0.3s linear;
+    transition: text-shadow 0.3s linear;
     -webkit-font-smoothing: antialiased;
     opacity: .9;
     font-weight: 600;
 }
 
     .navbar-harvest .navbar-inner .nav li a:hover {
-        color: white;
         text-decoration: none;
         text-shadow: 1PX 1px 5px rgba(0, 0, 0, .25);
     }
 
-.navbar-inner a {
-    color: white;
-    text-decoration: none;
-}
-
-    .navbar-inner a:hover {
-        color: white;
-        text-decoration: none;
-        text-shadow: 1PX 1px 5px rgba(0, 0, 0, .25);
-    }
 
 @media (max-width: 768px) {
     .navbar-inner .nav {
@@ -161,6 +157,10 @@
 }
 
 
+#home-carousel{
+    height: 60vh;
+}
+
 #home-carousel .carousel-inner img {
     height: 60vh;
     width: 100%;
@@ -169,11 +169,7 @@
 }
 
 .carousel-caption1 {
-    /*			background: linear-gradient(to bottom right, rgba(224, 46, 46, 0.71), rgba(217, 79, 79, 0.68)); */
-    background: linear-gradient(to bottom right, rgba(234, 18, 18, 0.77), rgba(195, 2, 2, 0.68));
-    /*            background: linear-gradient(to bottom right, rgba(255, 152, 0, 0.78), rgba(255, 152, 0, 0.74));*/
-    /*background: linear-gradient(to bottom, rgba(18, 113, 234, 0.77), rgba(31, 86, 117, 0.68));
-			background: linear-gradient(to bottom, rgba(18, 144, 234, 0.64), rgba(0, 74, 115, 0.68));*/
+    background-color: rgba(12, 134, 174, 0.6);
     text-align: left;
     font-size: 100%;
     color: white;
@@ -188,8 +184,9 @@
 }
 
     .carousel-caption1 h1 {
+        color: white;
         /*background: rgba(115, 115, 115, 0.11);*/
-        text-shadow: 0px 0.5px 1px 1px solid black;
+        text-shadow: 0px 0.5px 1px 1px black;
         font-size: 180%;
         margin-top: 0;
     }
@@ -277,7 +274,7 @@ body.fixed .wrapper {
 
     .content-area > h1 {
         margin: 10px;
-        /*    display: none;*/
+        font-size: 30px;
         color: #666;
     }
 
@@ -285,8 +282,8 @@ body.fixed .wrapper {
         position: relative;
         height: 300px;
         box-shadow: 1px 1px 2px 2px rgba(128, 128, 128, 0.4);
-        transition: box-shadow 0.8s ease-out 0s, border-color 0.8s ease-out 0s;
-        border-top: 5px solid orange;
+        transition: box-shadow 0.4s ease-in 0s, border-color 0.6s ease-in-out 0s;
+        border-top: 5px solid #009af3;
         border-radius: 1px;
         overflow: hidden;
         margin-bottom: 15px;
@@ -308,28 +305,28 @@ body.fixed .wrapper {
             right: 0;
             background-color: rgba(37, 37, 37, 0.53);
             color: white;
-            padding: 15px;
-            transition: background-color 0.3s ease-in 0s;
+            padding: 8px;
+            transition: background-color 0.3s ease-in-out 0s;
         }
 
             .content-area .content-box .content-desc .desc-heading {
-                font-weight: 600;
-                font-family: sans-serif;
+                font-size: 15px;
+margin: 0 0 3px 0;
             }
 
             .content-area .content-box .content-desc .desc-writeup {
-                font-family: trebuchet ms;
-                font-size: 3.5vw;
+                font-size: 12px;
+margin: 0px;
             }
 
         .content-area .content-box:hover {
             height: 300px;
             box-shadow: 1px 1px 4px 5px rgba(128, 128, 128, 0.4);
-            border-top-color: crimson;
+            border-top-color: #ff850f;
         }
 
             .content-area .content-box:hover .content-desc {
-                background-color: rgba(37, 37, 37, 0.63);
+                background-color: rgba(37, 37, 37, 0.75);
             }
 
 
@@ -423,41 +420,41 @@ label:hover input[type="radio"] ~ i.fa {
     color: #7AA3CC;
 }
 
-div[data-toggle="buttons"]{
+div[data-toggle="buttons"] {
     margin: 20px 0;
 }
 
-div[data-toggle="buttons"] label {
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 2em;
-    text-align: left;
-    white-space: nowrap;
-    vertical-align: top;
-    cursor: pointer;
-    background-color: none;
-    border: 0px solid #c8c8c8;
-    border-radius: 3px;
-    color: #c8c8c8;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-}
-
-    div[data-toggle="buttons"] label:hover {
-        color: #7AA3CC;
-    }
-
-    div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
+    div[data-toggle="buttons"] label {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 2em;
+        text-align: left;
+        white-space: nowrap;
+        vertical-align: top;
+        cursor: pointer;
+        background-color: none;
+        border: 0px solid #c8c8c8;
+        border-radius: 3px;
+        color: #c8c8c8;
         -webkit-box-shadow: none;
         box-shadow: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
     }
+
+        div[data-toggle="buttons"] label:hover {
+            color: #7AA3CC;
+        }
+
+        div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
 
 /* content manage */

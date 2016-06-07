@@ -14,7 +14,7 @@ namespace presevi_cms.Controllers
         {
             Business business = new Business();
             ViewBag.BannerList = business.GetBannerClientileData("banner");
-            ViewBag.ProductCategoryList = business.GetProdcutCategoryData("product-category");
+            ViewBag.ProductCategoryList = business.GetProdcutCategoryDataAll("product-category");
             ViewBag.ClientileList = business.GetBannerClientileData("clientile");
             return View();
         }

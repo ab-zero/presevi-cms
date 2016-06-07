@@ -11,86 +11,85 @@
     margin-bottom: 0px;
 }
 
-.navbar-harvest .navbar-inner .navbar-header {
-    padding-top: 18px;
-    
-}
-
-.navbar-harvest .navbar-inner {
-    height: 70px;
-    background: RGB(244, 251, 251);
-    background: -webkit-linear-gradient(top, RGB(244, 251, 251), RGB(231, 231, 231));
-    background: -moz-linear-gradient(top, RGB(244, 251, 251), RGB(231, 231, 231));
-    background: -o-linear-gradient(top, RGB(244, 251, 251), RGB(231, 231, 231));
-    background: -ms-linear-gradient(top, RGB(244, 251, 251), RGB(231, 231, 231));
-    background: linear-gradient(top, RGB(244, 251, 251), RGB(231, 231, 231));
-    -webkit-box-shadow: 0px 0px 8px 0px RGBA(155, 155, 155, 0.75);
-    box-shadow: 0px 0px 8px 0px RGBA(155, 155, 155, 0.75);
-    z-index: 1000;
-    border-width: 0 0 1px;
-    position: fixed;
-    right: 0;
-    left: 0;
-    z-index: 1030;
-    top: 0;
-    border-width: 0 0 1px;
-    float: left !important;
-}
-
-    .navbar-harvest .navbar-inner .nav {
-        float: right;
+    .navbar-harvest .navbar-inner .navbar-header {
+        padding-top: 18px;
+    }
+    /*background: -moz-linear-gradient(top, RGB(246, 249, 249), RGB(254, 254, 254));*/
+    .navbar-harvest .navbar-inner {
+        height: 70px;
+        background: RGB(244, 251, 251);
+        background: -webkit-linear-gradient(top, RGB(246, 249, 249), RGB(254, 254, 254));
+        background: -moz-linear-gradient(top, RGB(246, 249, 249), RGB(254, 254, 254));
+        background: -o-linear-gradient(top, RGB(246, 249, 249), RGB(254, 254, 254));
+        background: -ms-linear-gradient(top, RGB(246, 249, 249), RGB(254, 254, 254));
+        background: linear-gradient(top, RGB(246, 249, 249), RGB(254, 254, 254));
+        -webkit-box-shadow: 0px 0px 8px 0px RGBA(155, 155, 155, 0.75);
+        box-shadow: 0px 0px 8px 0px RGBA(155, 155, 155, 0.75);
+        z-index: 1000;
+        border-width: 0 0 1px;
+        position: fixed;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+        top: 0;
+        border-width: 0 0 1px;
+        float: left !important;
     }
 
-.navbar-harvest .brand {
-    text-shadow: none;
-    padding: 5px 0 0 0;
-    margin-left: 90px;
-    font-size: 26px;
-    color: #33adc2;
-    -webkit-transition: text-shadow 0.3s linear;
-    -moz-transition: text-shadow 0.3s linear;
-    -ms-transition: text-shadow 0.3s linear;
-    -o-transition: text-shadow 0.3s linear;
-    transition: text-shadow 0.3s linear;
-    -webkit-font-smoothing: antialiased;
-}
+        .navbar-harvest .navbar-inner .nav {
+            float: right;
+        }
 
-    .navbar-harvest .brand:hover {
-        text-decoration: none;
-        text-shadow: 1PX 1px 5px rgba(0, 0, 0, .12);
+    .navbar-harvest .brand {
+        text-shadow: none;
+        padding: 5px 0 0 0;
+        margin-left: 90px;
+        font-size: 26px;
+        color: #33adc2;
+        -webkit-transition: text-shadow 0.3s linear;
+        -moz-transition: text-shadow 0.3s linear;
+        -ms-transition: text-shadow 0.3s linear;
+        -o-transition: text-shadow 0.3s linear;
+        transition: text-shadow 0.3s linear;
+        -webkit-font-smoothing: antialiased;
     }
 
-.navbar-harvest .logo img {
-    height: 70px;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    top: 0;
-}
+        .navbar-harvest .brand:hover {
+            text-decoration: none;
+            text-shadow: 1PX 1px 5px rgba(0, 0, 0, .12);
+        }
 
-.navbar-harvest .navbar-inner .nav li a {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-shadow: none;
-    background: none;
-    color: #33adc2;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    -webkit-transition: text-shadow 0.3s linear;
-    -moz-transition: text-shadow 0.3s linear;
-    -ms-transition: text-shadow 0.3s linear;
-    -o-transition: text-shadow 0.3s linear;
-    transition: text-shadow 0.3s linear;
-    -webkit-font-smoothing: antialiased;
-    opacity: .9;
-    font-weight: 600;
-}
-
-    .navbar-harvest .navbar-inner .nav li a:hover {
-        text-decoration: none;
-        text-shadow: 1PX 1px 5px rgba(0, 0, 0, .25);
+    .navbar-harvest .logo img {
+        height: 70px;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 0;
     }
+
+    .navbar-harvest .navbar-inner .nav li a {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-shadow: none;
+        background: none;
+        color: #33adc2;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        -webkit-transition: text-shadow 0.3s linear;
+        -moz-transition: text-shadow 0.3s linear;
+        -ms-transition: text-shadow 0.3s linear;
+        -o-transition: text-shadow 0.3s linear;
+        transition: text-shadow 0.3s linear;
+        -webkit-font-smoothing: antialiased;
+        opacity: .9;
+        font-weight: 600;
+    }
+
+        .navbar-harvest .navbar-inner .nav li a:hover {
+            text-decoration: none;
+            text-shadow: 1PX 1px 5px rgba(0, 0, 0, .25);
+        }
 
 
 @media (max-width: 768px) {
@@ -157,59 +156,7 @@
 }
 
 
-#home-carousel{
-    height: 60vh;
-}
 
-#home-carousel .carousel-inner img {
-    height: 60vh;
-    width: 100%;
-    /*            object-fit: cover;*/
-    overflow: hidden;
-}
-
-.carousel-caption1 {
-    background-color: rgba(12, 134, 174, 0.6);
-    text-align: left;
-    font-size: 100%;
-    color: white;
-    position: absolute;
-    bottom: 10%;
-    width: 40%;
-    right: 10%;
-    height: 40vh;
-    z-index: 10;
-    padding: 20px;
-    overflow: hidden;
-}
-
-    .carousel-caption1 h1 {
-        color: white;
-        /*background: rgba(115, 115, 115, 0.11);*/
-        text-shadow: 0px 0.5px 1px 1px black;
-        font-size: 180%;
-        margin-top: 0;
-    }
-
-.carousel-caption-custom2 {
-    left: 5%;
-    right: 50%;
-    bottom: 5%;
-}
-
-.carousel-caption-text {
-}
-
-.carousel-custom-control {
-    width: 5%;
-}
-
-.para-click-text {
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
-    font-style: italic;
-}
 
 .col-xs-5ths,
 .col-sm-5ths,
@@ -278,6 +225,12 @@ body.fixed .wrapper {
         color: #666;
     }
 
+    .content-area .sub-title {
+        margin: 10px 10px 20px;
+        border-bottom: 3px solid rgb(233, 233, 233);
+        padding-bottom: 5px;
+    }
+
     .content-area .content-box {
         position: relative;
         height: 300px;
@@ -311,12 +264,12 @@ body.fixed .wrapper {
 
             .content-area .content-box .content-desc .desc-heading {
                 font-size: 15px;
-margin: 0 0 3px 0;
+                margin: 0 0 3px 0;
             }
 
             .content-area .content-box .content-desc .desc-writeup {
                 font-size: 12px;
-margin: 0px;
+                margin: 0px;
             }
 
         .content-area .content-box:hover {
@@ -457,4 +410,196 @@ div[data-toggle="buttons"] {
             box-shadow: none;
         }
 
-/* content manage */
+/* content manage END*/
+
+
+
+/*product: begin*/
+.product-title-container {
+    background: rgb(0, 0, 0) none repeat scroll 0% 0%;
+    width: 100%;
+    overflow: hidden;
+    min-height: 120px;
+    max-height: 250px;
+    height: 20vh;
+    position: relative;
+}
+
+    .product-title-container img {
+        height: 20vh;
+        position: absolute;
+        z-index: 1;
+        opacity: 0.45;
+        object-fit: cover;
+        width: 100%;
+        min-height: 120px;
+        max-height: 250px;
+    }
+
+    .product-title-container .title {
+        color: white;
+        padding-left: 30px;
+        vertical-align: middle;
+    }
+
+
+/*product: End*/
+
+
+/* CMS Start*/
+
+.content-message-container {
+    position: relative;
+    width: 70%;
+}
+
+
+
+.content-action-message {
+    background: rgb(191, 246, 251) none repeat scroll 0% 0%;
+    padding: 15px;
+    border-radius: 2px;
+}
+
+.content-message-container .close-icon {
+    position: absolute;
+    top: 7%;
+    right: 0.8%;
+    color: RGBA(155, 155, 155, 0.75);
+}
+
+    .content-message-container .close-icon:hover {
+        color: rgba(98, 98, 98, 0.8);
+    }
+
+.field-validation-error {
+    color: rgb(234, 120, 120);
+}
+
+/*CMS End*/
+
+
+/*carousel fade BEGIN*/
+/*
+  Bootstrap Carousel Fade Transition (for Bootstrap 3.3.x)
+  CSS from:       http://codepen.io/transportedman/pen/NPWRGq
+  and:            http://stackoverflow.com/questions/18548731/bootstrap-3-carousel-fading-to-new-slide-instead-of-sliding-to-new-slide
+  Inspired from:  http://codepen.io/Rowno/pen/Afykb 
+*/
+.carousel-fade .carousel-inner .item {
+    opacity: 0;
+    transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner .active {
+    opacity: 1;
+}
+
+    .carousel-fade .carousel-inner .active.left,
+    .carousel-fade .carousel-inner .active.right {
+        left: 0;
+        opacity: 0;
+        z-index: 1;
+    }
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+    opacity: 1;
+}
+
+.carousel-fade .carousel-control {
+    z-index: 2;
+}
+
+#homeCarousel {
+    height: 60vh;
+}
+
+    #homeCarousel .item {
+        height: 60vh;
+        width: 100%;
+    }
+
+    #homeCarousel .carousel-inner img {
+        height: 60vh;
+        width: 100%;
+        /*            object-fit: cover;*/
+        /*overflow: hidden;*/
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+.carousel-caption1 {
+    background-color: rgba(12, 134, 174, 0.6);
+    text-align: left;
+    font-size: 100%;
+    color: white;
+    position: absolute;
+    bottom: 10%;
+    width: 40%;
+    right: 10%;
+    height: 40vh;
+    z-index: 10;
+    padding: 20px;
+    overflow: hidden;
+}
+
+    .carousel-caption1 h1 {
+        color: white;
+        /*background: rgba(115, 115, 115, 0.11);*/
+        text-shadow: 0px 0.5px 1px 1px black;
+        font-size: 180%;
+        margin-top: 0;
+    }
+
+.carousel-caption-custom2 {
+    left: 5%;
+    right: 50%;
+    bottom: 5%;
+}
+
+.carousel-caption-text {
+}
+
+.carousel-custom-control {
+    width: 5%;
+}
+
+.para-click-text {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-style: italic;
+}
+
+/*
+  WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+  Need to override the 3.3 new styles for modern browsers & apply opacity
+*/
+@media all and (transform-3d), (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+        .carousel-fade .carousel-inner > .item.next.left,
+        .carousel-fade .carousel-inner > .item.prev.right,
+        .carousel-fade .carousel-inner > .item.active {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+}
+
+
+/*carousel fade END*/

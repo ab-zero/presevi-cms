@@ -16,7 +16,7 @@ namespace presevi_cms.Controllers
         public ProductDetailModel productDetailModel = new ProductDetailModel();
         public static Business business = new Business();
         [Authorize]
-        public ActionResult ContentManage()
+        public ActionResult Index()
         {
 
 
@@ -29,7 +29,7 @@ namespace presevi_cms.Controllers
             return PartialView(bannerClientModel);
         }
 
-        public PartialViewResult Create(string name)
+        public ActionResult Create(string name)
         {
             //switch (name.ToUpper())
             //{
@@ -51,20 +51,20 @@ namespace presevi_cms.Controllers
             {
                 case "BANNER":
                     ViewBag.Model = bannerClientModel;
-                    return PartialView();
+                    return View();
                 case "CLIENTILE":
                     ViewBag.Model = bannerClientModel;
-                    return PartialView();
+                    return View();
                 case "PRODUCT-CATEGORY":
                     ViewBag.Model = productCategoryModel;
-                    return PartialView();
+                    return View();
                 case "PRODUCT":
                     ViewBag.Model = productDetailModel;
-                    return PartialView();
+                    return View();
                 default:
                     ViewBag.Mesage = "No View Found";
                     ViewBag.Model = null;
-                    return PartialView();
+                    return View();
             }
 
         }
@@ -82,7 +82,7 @@ namespace presevi_cms.Controllers
                 // todo ajax call from client
                 // post json
                 // deserialize and update in controller
-
+                ProductSlugGenerator slug = new ProductSlugGenerator();
                 switch (name.ToUpper())
                 {
                     case "BANNER":
@@ -108,7 +108,7 @@ namespace presevi_cms.Controllers
                             ViewBag.Model = null;
                         }
 
-                        return View("ContentManage");
+                        return View();
 
                     case "CLIENTILE":
                         BannerClientileModel clObj = new BannerClientileModel();
@@ -133,7 +133,7 @@ namespace presevi_cms.Controllers
                             ViewBag.Model = null;
                         }
 
-                        return View("ContentManage");
+                        return View();
                     case "PRODUCT-CATEGORY":
                         ProductCategoryModel pcObj = new ProductCategoryModel();
                         //IEnumerable enumerable = (IEnumerable)newObj;
@@ -144,6 +144,7 @@ namespace presevi_cms.Controllers
                         pcObj.PageContent = Uri.UnescapeDataString(Request["PageContent"]);
                         pcObj.ProductCategory = Request["ProductCategory"];
                         pcObj.Tags = Request["Tags"];
+                        pcObj.CategorySlug = slug.GenerateSlug(Request["ProductCategory"]);
 
                         if (business.CreateProductCategory(pcObj) == "OK")
                         {
@@ -157,7 +158,7 @@ namespace presevi_cms.Controllers
                             ViewBag.Model = null;
                         }
 
-                        return View("ContentManage");
+                        return View();
                     case "PRODUCT":
                         ProductDetailModel pdObj = new ProductDetailModel();
                         //IEnumerable enumerable = (IEnumerable)newObj;
@@ -169,6 +170,7 @@ namespace presevi_cms.Controllers
                         pdObj.ProductCategory = Request["ProductCategory"];
                         pdObj.ProductName = Request["ProductName"];
                         pdObj.Tags = Request["Tags"];
+                        pdObj.ProductSlug = slug.GenerateSlug(Request["ProductName"]);
 
                         if (business.CreateProductDetail(pdObj) == "OK")
                         {
@@ -182,11 +184,11 @@ namespace presevi_cms.Controllers
                             ViewBag.Model = null;
                         }
 
-                        return View("ContentManage");
+                        return View();
                     default:
                         ViewBag.ActionMessage = "No View Found";
                         ViewBag.Model = null;
-                        return View("ContentManage");
+                        return View();
                 }
             }
             catch

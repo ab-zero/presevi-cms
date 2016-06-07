@@ -13,34 +13,59 @@ namespace presevi_cms.Controllers
         Business business = new Business();
         public ActionResult Index()
         {
-            ViewBag.Category = "ALl";
-            ViewBag.ProductName = "not defined";
+            List<ProductDetailModel> productDetailList = business.GetProductDetailDataAll("product-detail");
+            if (productDetailList != null)
+            {
+                ViewBag.isSuccess = true;
+                ViewBag.CategoryData = productDetailList;
+                ViewBag.ProductDetailList = productDetailList;
+            }
+            else
+            {
+                ViewBag.isSuccess = false;
+                ViewBag.PageContent = "No data Found";
+            }
+
             return View();
         }
 
         public ActionResult Detail(string name)
         {
-            ViewBag.ProductName = name;
-            return View();
+            ProductDetailModel productDetail = business.GetProductDetailDataFiltered("product-detail", name);
+            if (productDetail != null)
+            {
+                ViewBag.isSuccess = true;
+                ViewBag.ProductDetail = productDetail;
+            }
+            else
+            {
+                ViewBag.isSuccess = false;
+                ViewBag.PageContent = "No data Found";
+            }
+            
+            return View(); ;
         }
 
         public ActionResult Category(string name)
         {
             ViewBag.Category = name;
-            List<ProductCategoryModel> productCategoryList = business.GetProdcutCategoryData("product-category");
-            var dd = productCategoryList.Find(a => a.ProductCategory == name);
-            if (dd != null)
+            ProductCategoryModel productCategoryData = business.GetProdcutCategoryDataFiltered("product-category",name);
+            List<ProductDetailModel> productDetailList = business.GetProductDetailDataCategory("category", name);
+            if (productCategoryData != null)
             {
-                ViewBag.PageContent = dd.PageContent;
+                ViewBag.isSuccess = true;
+                ViewBag.CategoryData = productCategoryData;
+                ViewBag.ProductDetailList = productDetailList;
             }
             else
             {
+                ViewBag.isSuccess = false;
                 ViewBag.PageContent = "No data Found";
             }
-            ViewBag.ProductName = "not defined";
+            
             return View();
         }
 
-        
+
     }
 }

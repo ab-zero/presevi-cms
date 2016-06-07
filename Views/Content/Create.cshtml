@@ -1,4 +1,15 @@
-﻿@using (Html.BeginForm())
+﻿@{
+    ViewBag.Title = "CMS";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderPartial("_contentPartial");
+}
+
+
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -27,9 +38,6 @@
                     <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="@property.Name"></span>
                 </div>
             }
-
-
-
         }
     }
             }
@@ -40,20 +48,58 @@
     </div>
 }
 
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var manageType = 'Create';
+            console.log(window.location.pathname);
+            var contentType = window.location.pathname.split('/').splice(-1);
+            $('#contentTypeSel').show().val(contentType);
+            $('input:radio[name="manage"][value="' + manageType + '"]').prop('checked', true)
+            $('#contentTypeSel').change(function () {
+                console.log(this.value);
+                contentType = this.value;
+                $('#manageOptionDiv').fadeIn('slow');
+            });
 
-<script>
-    $(document).ready(function () {
-        var contentType = $('#createContent').attr('data-content-type');
-        if (contentType.indexOf('product') > -1) {
-            $('#PageContent').summernote();
-        }
+            $('input:radio[name="manage"]').change(function () {
+                manageType = this.value;
+                console.log(manageType);
+            });
 
-        $('#btnSubmit').click(function () {
-            $('#PageContent').val(encodeURIComponent($('#PageContent').code()));
+            $('#btnManageContent').click(function () {
+                contentType = $('#contentTypeSel').val();
+                manageType = $('input:radio[name="manage"]:checked').val();
+                window.location.href = '/content/' + manageType + '/' + contentType;
+                //$('#contentPlaceHolder').load('/content/' + manageType + '/' + contentType);
+            });
+
+            var contentType = $('#createContent').attr('data-content-type');
+            if (contentType.indexOf('product') > -1) {
+                $('#PageContent').summernote({
+
+
+                        fontsize: ['fontsize'],
+                        height: 300,
+                        minHeight: 100,
+                        defaultBackColor: '#e0e0e0'
+
+                });
+                //$('#PageContent').materialnote({
+                //    toolbar: toolbar,
+                //    height: 550,
+                //    minHeight: 100,
+                //    defaultBackColor: '#e0e0e0'
+                //});
+            }
+
+            $('#btnSubmit').click(function () {
+                $('#PageContent').val(encodeURIComponent($('#PageContent').code()));
+
+            });
 
         });
 
-    });
-
-</script>
+    </script>
+}
 

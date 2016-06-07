@@ -254,6 +254,12 @@
     <Content Include="lib\materialize\font\material-design-icons\LICENSE.txt" />
     <Content Include="lib\materialize\font\material-design-icons\Material-Design-Icons.svg" />
     <Content Include="lib\materialize\js\materialize.min.js" />
+    <Content Include="lib\materialNote\css\codeMirror\codemirror.css" />
+    <Content Include="lib\materialNote\css\codeMirror\monokai.css" />
+    <Content Include="lib\materialNote\css\main.css" />
+    <Content Include="lib\materialNote\css\materialNote.css" />
+    <Content Include="lib\materialNote\js\ckMaterializeOverrides.js" />
+    <Content Include="lib\materialNote\js\materialNote.min.js" />
     <Content Include="lib\pace\css\pace.css" />
     <Content Include="lib\pace\js\pace.min.js" />
     <Content Include="lib\require\almond-custom.js" />
@@ -349,7 +355,7 @@
     <Content Include="lib\materialize\font\roboto\Roboto-Thin.woff2" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Content\ContentManage.cshtml" />
+    <Content Include="Views\Content\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_contentPartial.cshtml" />

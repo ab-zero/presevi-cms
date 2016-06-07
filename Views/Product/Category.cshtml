@@ -1,11 +1,35 @@
 ﻿@{
-    ViewBag.Title = "Category";
+    ViewBag.Title = ViewBag.Category;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container" style="margin-top:20px;">
+    <div class="product-title-container">
+        <img src="@ViewBag.CategoryData.ImageUrl" />
+        <h2 class="title">@ViewBag.CategoryData.ProductCategory</h2>
+    </div>
 
-<h2>Category</h2>
 
-<div>
-    @Html.Raw(@ViewBag.PageContent)
-     
+    <div class="product-page-content">
+        @Html.Raw(Uri.UnescapeDataString(@ViewBag.CategoryData.PageContent))
+    </div>
+
+    <div class="row content-area">
+        <h5>These are our products under @ViewBag.Category Category. Click on the thumbnail for detailed description.</h5>
+        @{
+            foreach (var productDetail in ViewBag.ProductDetailList)
+            {
+                <a href="/product/Detail/@productDetail.ProductSlug" class="col-lg-5ths col-md-6 col-sm-12 col-xs-12">
+                    <div class="content-box content-four">
+                        <img src="@productDetail.ImageUrl" class="img-responsive" />
+                        <div class="content-desc">
+                            <p class="desc-heading">@productDetail.ProductName</p>
+                            <p class="desc-writeup">@productDetail.Description</p>
+                        </div>
+                    </div>
+                </a>
+            }
+        }
+
+
+    </div>
 </div>

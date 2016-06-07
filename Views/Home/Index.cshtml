@@ -4,63 +4,65 @@
 
 @section carousel {
 
-    <div id="home-carousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators hidden">
-            @{
-                int i = 0;
-                foreach (var banner in ViewBag.BannerList)
+    <div id="homeCarousel" class="carousel slide carousel-fade"  data-ride="carousel">
+    <ol class="carousel-indicators hidden">
+        @{
+            int i = 0;
+            foreach (var banner in ViewBag.BannerList)
+            {
+                if (i == 0)
                 {
-                    if (i == 0)
-                    {
-                        <li data-target="#home-carousel" data-slide-to="@i" class="active"></li>
-                    }
-                    else
-                    {
-                        <li data-target="#home-carousel" data-slide-to="@i"></li>
-                    }
-
-                    i++;
+                    <li data-target="#
+                        " data-slide-to="@i" class="active"></li>
                 }
-            }
-        </ol>
-        <div class="carousel-inner" role="list-box">
-
-            @{
-
-                foreach (var banner in ViewBag.BannerList)
+                else
                 {
+                    <li data-target="#homeCarousel" data-slide-to="@i"></li>
+                }
 
-                    <div class="item">
-                        <img class="first-slide" src="@banner.ImageUrl" alt="@banner.ImageAltText">
-                        <a href="@banner.TargetUrl">
-                            <div class="container">
+                i++;
+            }
+        }
+    </ol>
+    <div class="carousel-inner" role="listbox">
 
-                                <div class="carousel-caption1 carousel-caption-custom">
-                                    <h1>@banner.ImageHeader</h1>
-                                    <div class="carousel-caption-text">
-                                        <p>@banner.Description</p>
-                                        <p class="para-click-text">Click to know more about us...</p>
-                                    </div>
+        @{
+
+            foreach (var banner in ViewBag.BannerList)
+            {
+
+                <div class="item">
+                    <img class="first-slide" src="@banner.ImageUrl" alt="@banner.ImageAltText">
+                    <a href="@banner.TargetUrl">
+                        <div class="container">
+
+                            <div class="carousel-caption1 carousel-caption-custom">
+                                <h1>@banner.ImageHeader</h1>
+                                <div class="carousel-caption-text">
+                                    <p>@banner.Description</p>
+                                    <p class="para-click-text">Click to know more about us...</p>
                                 </div>
                             </div>
+                        </div>
 
-                        </a>
-                    </div>
-                }
+                    </a>
+                </div>
             }
-        </div>
-
-
-
-        <a class="left carousel-control carousel-custom-control" href="#home-carousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"> </span>
-        </a>
-        <a class="right carousel-control carousel-custom-control" href="#home-carousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"> </span>
-        </a>
-
-
+        }
     </div>
+
+
+
+    <a class="left carousel-control carousel-custom-control" href="#homeCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"> </span>
+    </a>
+    <a class="right carousel-control carousel-custom-control" href="#homeCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"> </span>
+    </a>
+
+
+</div>
+
 }
 
 <div class="container-fluid">
@@ -69,7 +71,7 @@
         @{
             foreach (var productCategory in ViewBag.ProductCategoryList)
             {
-                <a href="/product/category/@productCategory.ProductCategory" class="col-lg-5ths col-md-6 col-sm-12 col-xs-12">
+                <a href="/product/category/@productCategory.CategorySlug" class="col-lg-5ths col-md-6 col-sm-12 col-xs-12">
                     <div class="content-box content-four">
                         <img src="@productCategory.ImageUrl" class="img-responsive" />
                         <div class="content-desc">
@@ -92,6 +94,7 @@
     <script>
         $(document).ready(function () {
             $('.carousel-inner div.item:first').addClass('active');
+            $('#homeCarousel').carousel({ interval: 15000 });
         });
     </script>
 }

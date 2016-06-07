@@ -13,7 +13,10 @@
     <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/lib/pace/css/pace.css" rel="stylesheet" />
     <link href="~/lib/summernote/summernote.css" rel="stylesheet" />
-
+    @*<link href="~/lib/materialNote/css/main.css" rel="stylesheet" />*@
+    @*<link href="~/lib/materialNote/css/materialNote.css" rel="stylesheet" />*@
+    @*<link href="~/lib/materialNote/css/codeMirror/monokai.css" rel="stylesheet" />
+    <link href="~/lib/materialNote/css/codeMirror/codemirror.css" rel="stylesheet" />*@
     <!-- custom css-->
     <link href="~/css/Site.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width" />
@@ -36,7 +39,7 @@
                             </button>
 
                             <a class="navbar-brand logo" href="index.html">
-                                <img src="images/presevi-logo.png" alt="">
+                                <img src="~/images/presevi-logo.png" alt="">
                             </a>
                             <a class="navbar-brand brand" href="index.html">
                                 <span>Presevi Industrial Solutions</span>
@@ -55,7 +58,7 @@
                                     <a href="~/product">Products</a>
                                 </li>
                                 <li>
-                                    <a href="~/contentManage">Admin</a>
+                                    <a href="~/content">Admin</a>
                                 </li>
                                 <li>
                                     <a href="~/contact">Contact Us</a>
@@ -86,6 +89,7 @@
     <script src="~/lib/jquery/jquery.responsiveTabs.min.js"></script>
     <script src="~/lib/jquery/responsiveslides.min.js"></script>
     <script src="~/lib/materialize/js/materialize.min.js"></script>
+    
     <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/lib/pace/js/pace.min.js"></script>
     <script src="~/lib/custom/jquery-1.8.2.intellisense.js"></script>
@@ -93,7 +97,10 @@
     <script src="~/lib/custom/jquery.validate-vsdoc.js"></script>
     <script src="~/lib/custom/jquery.validate.min.js"></script>
     <script src="~/lib/custom/jquery.validate.unobtrusive.min.js"></script>
+    @*<script src="~/lib/materialNote/js/materialNote.min.js"></script>*@
+    @*<script src="~/lib/materialNote/js/ckMaterializeOverrides.js"></script>*@ 
     <script src="~/lib/summernote/summernote.min.js"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

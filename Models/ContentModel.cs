@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Web.Security;
 
 namespace presevi_cms.Models
@@ -77,6 +78,8 @@ namespace presevi_cms.Models
 
         public int Sequence { get; set; }
 
+        public string CategorySlug { get; set; }
+
     }
 
     public class ProductDetailModel
@@ -109,6 +112,31 @@ namespace presevi_cms.Models
         public string Tags { get; set; }
 
         public int Sequence { get; set; }
+
+        public string ProductSlug { get; set; }
+
+    }
+
+    public class ProductSlugGenerator
+    {
+        public string GenerateSlug(string urlIdentifier)
+        {
+            string str = RemoveAccent(urlIdentifier).ToLower();
+            // invalid chars           
+            str = Regex.Replace(str, @"[^a-z0-9\s-]", "");
+            // convert multiple spaces into one space   
+            str = Regex.Replace(str, @"\s+", " ").Trim();
+            // cut and trim 
+            str = str.Substring(0, str.Length <= 45 ? str.Length : 45).Trim();
+            str = Regex.Replace(str, @"\s", "-"); // hyphens   
+            return str;
+        }
+
+        private string RemoveAccent(string text)
+        {
+            byte[] bytes = System.Text.Encoding.GetEncoding("Cyrillic").GetBytes(text);
+            return System.Text.Encoding.ASCII.GetString(bytes);
+        }
 
     }
 }

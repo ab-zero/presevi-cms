@@ -16,11 +16,11 @@ namespace presevi_cms
 
 
 
-            routes.MapRoute(
-                name: "ContentManage",
-                url: "ContentManage",
-                defaults: new { controller = "Content", action = "ContentManage", id = UrlParameter.Optional }
-            );
+            //routes.MapRoute(
+            //    name: "ContentManage",
+            //    url: "ContentManage",
+            //    defaults: new { controller = "Content", action = "ContentManage", id = UrlParameter.Optional }
+            //);
 
             routes.MapRoute(
                 name: "Index",

@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "CMS";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderPartial("_contentPartial");
+}
+
+@section Scripts{
+
+
+    <script>
+        $(document).ready(function () {
+            console.log("content");
+
+            var contentType = null;
+            var manageType = null;
+            $('#contentTypeSel').show().change(function () {
+                console.log(this.value);
+                contentType = this.value;
+                $('#manageOptionDiv').fadeIn('slow');
+            });
+
+            $('input:radio[name="manage"]').change(function () {
+                manageType = this.value;
+                console.log(manageType);
+            });
+
+            $('#btnManageContent').click(function () {
+                contentType = $('#contentTypeSel').val();
+                manageType = $('input:radio[name="manage"]:checked').val();
+                window.location.href = '/content/' + manageType + '/' + contentType;
+                //$('#contentPlaceHolder').load('/content/' + manageType + '/' + contentType);
+            });
+
+        });
+
+
+    </script>
+}

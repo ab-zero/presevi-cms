@@ -1,43 +1,100 @@
-﻿@{
-    ViewBag.Title = "CMS";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿<h2>
+    Content Management System
+</h2>
+
+<div class="padding-top:20px;"></div>
+
+@{
+    if (ViewBag.mode == "return")
+    {
+        <div class="content-message-container">
+            <p class="content-action-message">
+                @ViewBag.ActionMessage
+
+            </p>
+            <i class="fa fa-close close-icon"></i>
+        </div>
+
+        @*<div id="resultDiv" class="row">
+                <div class="col-xs-6 col-xs-offset-3">
+
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Value</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>ContentType</td>
+                                <td>@ViewBag.ModelContent.ContentType</td>
+                            </tr>
+                            <tr>
+                                <td>Target Url</td>
+                                <td>@ViewBag.ModelContent.TargetUrl</td>
+                            </tr>
+                            <tr>
+                                <td>Image Url</td>
+                                <td>@ViewBag.ModelContent.ImageUrl</td>
+                            </tr>
+                            <tr>
+                                <td>Image Alt Text</td>
+                                <td>@ViewBag.ModelContent.ImageAltText</td>
+                            </tr>
+                            <tr>
+                                <td>Image Header</td>
+                                <td>@ViewBag.ModelContent.ImageHeader</td>
+                            </tr>
+                            <tr>
+                                <td>Description</td>
+                                <td>@ViewBag.ModelContent.Description</td>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>*@
+
+        <p style="font-size: 20px; padding: 5px;">You can view it Live after refreshing the page. Please select another content to manage if needed.</p>
+    }
 }
 
 
-<div id="cmsSection" class="cms-section">
 
-
-    <select id="contentTypeSel" class="select-content">
-        <option value="top">--Select a content to manage--</option>
-        <option value="banner">Banner</option>
-        <option value="product-category">Product Category</option>
-        <option value="product">Product</option>
-        <option value="clientiele">Clientile</option>
-    </select>
-
-    <input type="radio" value="Create" class="form-control"/>
-    <input type="radio" value="Edit" class="form-control" />
-    <input type="radio" value="Delete" class="form-control" />
-
+<div class="row" style="margin-top:20px;">
+    <div class="col-xs-12">
+        <select id="contentTypeSel" class="select-content">
+            <option value="top">Select a content to manage</option>
+            <option value="banner">Banner</option>
+            <option value="product-category">Product Category</option>
+            <option value="product">Product</option>
+            <option value="clientiele">Clientile</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn active">
+                <input type="radio" name='manage' checked value="Create"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span> Create</span>
+            </label>
+            <label class="btn">
+                <input type="radio" name='manage' value="Edit"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span> Edit</span>
+            </label>
+            <label class="btn">
+                <input type="radio" name='manage' value="Delete"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span> Delete</span>
+            </label>
+        </div>
+    </div>
 </div>
 
+<input type="button" id="btnManageContent" value="Click here to Manage Content" class="btn btn-info" />
+
+<div id="contentPlaceHolder">
 
 
-@section Scripts{
-
-    @if (ViewBag.isAuthenticated)
-    {
-        <script>
-            $(document).ready(function () {
-                var $radio = ""
-                $('#loginDiv').fadeOut('slow');
-
-                $('#contentTypeSel').show().change(function () {
-                    console.log(this.value);
-                });
-                console.log("tatt");
-            });
-            
-        </script>
-    }
-    }
+</div>

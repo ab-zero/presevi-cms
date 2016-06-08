@@ -1,80 +1,103 @@
-﻿@model presevi_cms.Models.PreseviDataModel
-
+﻿
 <script src="~/Scripts/jquery-1.8.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Edit", "Content"))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
+    <h3>Edit</h3>
 
-    <fieldset>
-        <legend>PreseviDataModel</legend>
+    <div class="container">
+        @{
+    if (ViewBag.ContentType == "banner")
+    {
+        foreach (var banner in @ViewBag.BannerList)
+        {
+            //Submit has value attribute equivalent to ID. We use the ID as prefix to find the respective Form values.
+            //As we have multiple forms generated using For each, we have to append the Request with 'ID-'
+            <button type="button" data-toggle="collapse" data-parent="#accordion" href="#@banner.Id">@banner.ImageAltText</button>
+            <div id="@banner.Id" class="collapse">
+                <input type="hidden" name="@banner.Id-ContentType" value="@banner.ContentType" />
+                <label for="@banner.Id-TargetUrl">Target URL</label>
+                <input type="text" name="@banner.Id-TargetUrl" id="@banner.Id-TargetUrl" value="@banner.TargetUrl" />
+                <label for="@banner.Id-ImageUrl">Image URL</label>
+                <input type="text" name="@banner.Id-ImageUrl" id="@banner.Id-ImageUrl" value="@banner.ImageUrl" />
+                <label for="@banner.Id-ImageAltText">Image Alternative Text</label>
+                <input type="text" name="@banner.Id-ImageAltText" id="@banner.Id-ImageAltText" value="@banner.ImageAltText" />
+                <label for="@banner.Id-ImageHeader">Image Header</label>
+                <input type="text" name="@banner.Id-ImageHeader" id="@banner.Id-ImageHeader" value="@banner.ImageHeader" />
+                <label for="@banner.Id-Description">Description</label>
+                <textarea name="@banner.Id-Description" id="@banner.Id-Description">@banner.Description</textarea>
+                <label for="@banner.Id-Tags">Tags</label>
+                <input type="text" name="@banner.Id-Tags" id="@banner.Id-Tags" value="@banner.Tags" />
+                <button type="submit" name="Submit" class="btn btn-info banner-edit" value="@banner.Id">Update</button><br />
+            </div>
+        }
+    }
+    else if (ViewBag.ContentType == "product-category")
+    {
+        foreach (var pc in @ViewBag.ProductCategoryList)
+        {
+            <button type="button" data-toggle="collapse" data-parent="#accordion" href="#@pc.Id">@pc.ImageAltText</button>
+            <div id="@pc.Id" class="collapse">
+                <input type="hidden" name="@pc.Id-ContentType" value="@pc.ContentType" />
+                <label for="@pc.ImageUrl">Image URL</label>
+                <input type="text" name="@pc.Id-ImageUrl" value="@pc.ImageUrl" />
+                <label for="@pc.Id-ImageAltText">Image Alternative Text</label>
+                <input type="text" name="@pc.Id-ImageAltText" value="@pc.ImageAltText" />
+                <label for="@pc.Id-Description">Description</label>
+                <textarea name="@pc.Id-Description">@pc.Description</textarea>
+                <label for="@pc.Id-PageContent">Page Content</label>
+                <textarea name="@pc.Id-PageContent">@pc.PageContent</textarea>
+                <label for="@pc.Id-CategorySlug">Category Slug</label>
+                <input type="text" name="@pc.Id-CategorySlug" value="@pc.CategorySlug" />
+                <label for="@pc.Id-Tags">Tags</label>
+                <input type="text" name="@pc.Id-Tags" value="@pc.Tags" />
+                <input type="submit" name="Submit" class="btn btn-info banner-edit" data-id="@pc.Id" value="Update" /><br />
+            </div>
+        }
+    }
+    else if (ViewBag.ContentType == "product")
+    {
+        foreach (var pd in @ViewBag.ProductDetailList)
+        {
+            <button type="button" data-toggle="collapse" data-parent="#accordion" href="#@pd.Id">@pd.ImageAltText</button>
+            <div id="@pd.Id" class="collapse">
+                <input type="hidden" name="@pd.Id-ContentType" value="@pd.ContentType" />
+                <label for="@pd.Id-ProductName">Product Name</label>
+                <input type="text" name="@pd.Id-ProductName" value="@pd.ProductName" />
+                <label for="@pd.Id-ImageUrl">Image URL</label>
+                <input type="text" name="@pd.Id-ImageUrl" value="@pd.ImageUrl" />
+                <label for="@pd.Id-ImageAltText">Image Alternative Text</label>
+                <input type="text" name="@pd.Id-ImageAltText" value="@pd.ImageAltText" />
+                <label for="@pd.Id-Description">Description</label>
+                <textarea name="@pd.Id-Description">@pd.Description</textarea>
+                <label for="@pd.Id-PageContent">Page Content</label>
+                <textarea name="@pd.Id-PageContent">@pd.PageContent</textarea>
+                <label for="@pd.Id-Tags">Tags</label>
+                <input type="text" name="@pd.Id-Tags" value="@pd.Tags" />
+                <input type="submit" name="Submit" class="btn btn-info banner-edit" data-id="@pd.Id" value="Update" /><br />
+            </div>
+        }
+    }
+    else if (ViewBag.ContentType == "clientile")
+    {
+        foreach (var clientile in @ViewBag.ClientileList)
+        {
 
-        @Html.HiddenFor(model => model.Id)
+        }
+    }
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ContentType)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ContentType)
-            @Html.ValidationMessageFor(model => model.ContentType)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.TargetUrl)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.TargetUrl)
-            @Html.ValidationMessageFor(model => model.TargetUrl)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ImageUrl)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ImageUrl)
-            @Html.ValidationMessageFor(model => model.ImageUrl)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ImageAltText)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ImageAltText)
-            @Html.ValidationMessageFor(model => model.ImageAltText)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ImageHeader)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ImageHeader)
-            @Html.ValidationMessageFor(model => model.ImageHeader)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Description)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Description)
-            @Html.ValidationMessageFor(model => model.Description)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Sequence)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Sequence)
-            @Html.ValidationMessageFor(model => model.Sequence)
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
+        }
+    </div>
 }
+<script>
+    $(document).ready(function () {
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+
+    });
+
+</script>

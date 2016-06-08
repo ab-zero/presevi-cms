@@ -24,7 +24,7 @@ namespace presevi_cms.Models.DataLayer
             return System.Configuration.ConfigurationManager.ConnectionStrings["ContentDataConnection"].ToString(); ;
         }
 
-        
+
 
         public bool Authenticate(string userName, string password)
         {
@@ -64,8 +64,8 @@ namespace presevi_cms.Models.DataLayer
             query = "INSERT INTO [tblBannerClientile]([Id],[ContentType], [TargetUrl], [ImageUrl], [ImageAltText], [ImageHeader], [Description], [Tags], [Sequence])" +
                 "VALUES(@maxId ,@ContentType, @TargetUrl ,@ImageUrl, @ImageAltText, @ImageHeader, @Description, @Tags, @maxSequence)";
 
-                //maxId + ",'" + imageContent.ContentType + "','" + imageContent.TargetUrl + "','" + imageContent.ImageUrl + "','" +
-                //imageContent.ImageAltText + "','" + imageContent.ImageHeader + "','" + imageContent.Description + "','" + imageContent.Tags + "'," + maxSequence + ");";
+            //maxId + ",'" + imageContent.ContentType + "','" + imageContent.TargetUrl + "','" + imageContent.ImageUrl + "','" +
+            //imageContent.ImageAltText + "','" + imageContent.ImageHeader + "','" + imageContent.Description + "','" + imageContent.Tags + "'," + maxSequence + ");";
             List<SqlParameter> spList = new List<SqlParameter>();
             SqlParameter sp = new SqlParameter();
             spList.Add(new SqlParameter("@maxId", maxId));
@@ -89,9 +89,9 @@ namespace presevi_cms.Models.DataLayer
             maxSequence = GetMaxSequence("tblProductCategory", "Sequence", productCategory.ContentType) + 1;
             query = "INSERT INTO [tblProductCategory]([Id],[ContentType], [ImageUrl], [ImageAltText],[ProductCategory], [Description],[PageContent], [Tags], " +
                 "[Sequence], [CategorySlug])VALUES(@maxId ,@ContentType ,@ImageUrl, @ImageAltText ,@ProductCategory, @Description ,@PageContent ,@Tags, @maxSequence, @CategorySlug)";
-                //maxId + ",'" + productCategory.ContentType + "','" + productCategory.ImageUrl + "','" +
-                //productCategory.ImageAltText + "','" + productCategory.ProductCategory + "','" + productCategory.Description +
-                //"','" + productCategory.PageContent + "','" + productCategory.Tags + "'," + maxSequence + ");";
+            //maxId + ",'" + productCategory.ContentType + "','" + productCategory.ImageUrl + "','" +
+            //productCategory.ImageAltText + "','" + productCategory.ProductCategory + "','" + productCategory.Description +
+            //"','" + productCategory.PageContent + "','" + productCategory.Tags + "'," + maxSequence + ");";
             List<SqlParameter> spList = new List<SqlParameter>();
             SqlParameter sp = new SqlParameter();
             spList.Add(new SqlParameter("@maxId", maxId));
@@ -177,14 +177,75 @@ namespace presevi_cms.Models.DataLayer
             return ExecuteDataSet(query, "tblProductDetail");
         }
 
-        public void EditImageContent(BannerClientileModel imageContent)
+        #region Update
+
+        public void UpdateBannerClientile(BannerClientileModel imageContent)
         {
             string query = string.Empty;
-            query = String.Format("Update [tblImageContent] set [ContentType] = {0}, [TargetUrl] ={1}, [ImageUrl]={2}, [AltText]={3}, [Header]={4}, [Content]={5}, [Sequence]={6} where Id = {7}",
-                imageContent.ContentType, imageContent.TargetUrl, imageContent.ImageUrl, imageContent.ImageAltText, imageContent.ImageHeader, imageContent.Description, imageContent.Sequence, imageContent.Id);
 
-            ExecuteNonQuery(query);
+            query = "UPDATE [tblBannerClientile] set [TargetUrl]=@TargetUrl, [ImageUrl] = @ImageUrl, [ImageAltText] = @ImageAltText, " +
+                "[ImageHeader] = @ImageHeader, [Description] = @Description, [Tags] = @Tags " +
+                "WHERE ID = @ContentId";
+
+            List<SqlParameter> spList = new List<SqlParameter>();
+            SqlParameter sp = new SqlParameter();
+            spList.Add(new SqlParameter("@TargetUrl", imageContent.TargetUrl));
+            spList.Add(new SqlParameter("@ImageUrl", imageContent.ImageUrl));
+            spList.Add(new SqlParameter("@ImageAltText", imageContent.ImageAltText));
+            spList.Add(new SqlParameter("@ImageHeader", imageContent.ImageHeader));
+            spList.Add(new SqlParameter("@Description", imageContent.Description));
+            spList.Add(new SqlParameter("@Tags", imageContent.Tags));
+            spList.Add(new SqlParameter("@ContentId", imageContent.Id));
+            ExecuteNonQueryWithParms(query, spList);
         }
+
+        public void UpdateProductCategory(ProductCategoryModel productCategory)
+        {
+            string query = string.Empty;
+            query = "UPDATE [tblProductCategory] set [ImageUrl]= @ImageUrl, [ImageAltText]= @ImageAltText,[ProductCategory] =@ProductCategory, " +
+                "[Description]= @Description,[PageContent]=@PageContent, [Tags]=@Tags, " +
+                "[CategorySlug] = @CategorySlug where ID = @ContentId";
+            //maxId + ",'" + productCategory.ContentType + "','" + productCategory.ImageUrl + "','" +
+            //productCategory.ImageAltText + "','" + productCategory.ProductCategory + "','" + productCategory.Description +
+            //"','" + productCategory.PageContent + "','" + productCategory.Tags + "'," + maxSequence + ");";
+            List<SqlParameter> spList = new List<SqlParameter>();
+            SqlParameter sp = new SqlParameter();
+            spList.Add(new SqlParameter("@ImageUrl", productCategory.ImageUrl));
+            spList.Add(new SqlParameter("@ImageAltText", productCategory.ImageAltText));
+            spList.Add(new SqlParameter("@ProductCategory", productCategory.ProductCategory));
+            spList.Add(new SqlParameter("@Description", productCategory.Description));
+            spList.Add(new SqlParameter("@PageContent", productCategory.PageContent));
+            spList.Add(new SqlParameter("@Tags", productCategory.Tags));
+            spList.Add(new SqlParameter("@CategorySlug", productCategory.CategorySlug));
+            spList.Add(new SqlParameter("@ContentId", productCategory.Id));
+            ExecuteNonQueryWithParms(query, spList);
+        }
+
+        public void UpdateProductDetail(ProductDetailModel productDetail)
+        {
+            string query = string.Empty;
+            query = "UPDATE [tblProductDetail] set [ImageUrl]= @ImageUrl, [ImageAltText]= @ImageAltText,[ProductCategory] =@ProductCategory, " +
+               "[ProductName]= @ProductName, [Description]= @Description,[PageContent]=@PageContent, [Tags]=@Tags, " +
+               "[CategorySlug] = @CategorySlug where ID = @ContentId";
+            List<SqlParameter> spList = new List<SqlParameter>();
+            SqlParameter sp = new SqlParameter();
+            spList.Add(new SqlParameter("@ImageUrl", productDetail.ImageUrl));
+            spList.Add(new SqlParameter("@ImageAltText", productDetail.ImageAltText));
+            spList.Add(new SqlParameter("@ProductName", productDetail.ProductName));
+            spList.Add(new SqlParameter("@ProductCategory", productDetail.ProductCategory));
+            spList.Add(new SqlParameter("@Description", productDetail.Description));
+            spList.Add(new SqlParameter("@PageContent", productDetail.PageContent));
+            spList.Add(new SqlParameter("@Tags", productDetail.Tags));
+            spList.Add(new SqlParameter("@ProductSlug", productDetail.ProductSlug));
+            spList.Add(new SqlParameter("@ContentId", productDetail.Id));
+            //maxId + ",'" + productDetail.ContentType + "','" + productDetail.ImageUrl + "','" +
+            //    productDetail.ImageAltText + "','" + productDetail.ProductName + "','" + productDetail.ProductCategory + "','" +
+            //    productDetail.Description + "','" + productDetail.PageContent + "','" + productDetail.Tags + "'," + maxSequence + ");";
+
+            ExecuteNonQueryWithParms(query, spList);
+        }
+
+        #endregion Update
 
         public void DeleteImageContent(BannerClientileModel imageContent)
         {

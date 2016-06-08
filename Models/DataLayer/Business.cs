@@ -235,11 +235,11 @@ namespace presevi_cms.Models.DataLayer
         #endregion Read
 
         #region Update
-        public string EditImageContent(BannerClientileModel imageContent)
+        public string UpdateBannerClientileContent(BannerClientileModel imageContent)
         {
             try
             {
-                dataAccess.EditImageContent(imageContent);
+                dataAccess.UpdateBannerClientile(imageContent);
                 return "OK";
             }
             catch (Exception ex)
@@ -248,6 +248,31 @@ namespace presevi_cms.Models.DataLayer
             }
         }
 
+        public string UpdateProductCategory(ProductCategoryModel imageContent)
+        {
+            try
+            {
+                dataAccess.UpdateProductCategory(imageContent);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string UpdateProductDetail(ProductDetailModel imageContent)
+        {
+            try
+            {
+                dataAccess.UpdateProductDetail(imageContent);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion Update
 
         #region Delete

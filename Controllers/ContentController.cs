@@ -201,19 +201,140 @@ namespace presevi_cms.Controllers
         //
         // GET: /Content/Edit/5
 
-        public ActionResult Edit(string contentType)
+        [HttpGet]
+        public ActionResult edit(string name)
         {
-            return View(bannerClientModel);
+            switch (name.ToUpper())
+            {
+                case "BANNER":
+                    ViewBag.ContentType = "banner";
+                    ViewBag.BannerList = business.GetBannerClientileData("banner");
+                    break;
+                case "PRODUCT-CATEGORY":
+                    ViewBag.ContentType = "product-category";
+                    ViewBag.ProductCategoryList = business.GetProdcutCategoryDataAll("product-category");
+                    break;
+                case "PRODUCT":
+                    ViewBag.ContentType = "product";
+                    ViewBag.ProductDetailList = business.GetProductDetailDataAll("product");
+                    break;
+                case "CLIENTILE":
+                    ViewBag.ContentType = "clientile";
+                    ViewBag.ClientileList = business.GetBannerClientileData("clientile");
+                    break;
+
+            }
+            return View("edit");
+
         }
 
         //
         // POST: /Content/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(string contentType, FormCollection collection)
+        public ActionResult edit()
         {
             try
             {
+                string ID = Request["Submit"];
+                string ContentType = Request[ID + "-" + "ContentType"];
+                switch (ContentType.ToUpper())
+                {
+                    case "BANNER":
+                        BannerClientileModel bcObj = new BannerClientileModel();
+                        bcObj.Id = int.Parse(ID);
+                        bcObj.ContentType = ContentType;
+                        bcObj.Description = Request[ID + "-" + "Description"];
+                        bcObj.ImageAltText = Request[ID + "-" + "ImageAltText"];
+                        bcObj.ImageHeader = Request[ID + "-" + "ImageHeader"];
+                        bcObj.ImageUrl = Request[ID + "-" + "ImageUrl"];
+                        bcObj.Tags = Request[ID + "-" + "Tags"];
+                        bcObj.TargetUrl = Request[ID + "-" + "TargetUrl"];
+                        if (business.UpdateBannerClientileContent(bcObj) == "OK")
+                        {
+                            ViewBag.ModelContent = bcObj;
+                            ViewBag.ActionMessage = "This " + ContentType + " is Updated successfully";
+                            ViewBag.Mode = "return";
+                        }
+                        else
+                        {
+                            ViewBag.ActionMessage = "Error While Updating. Contact administrator!";
+                            ViewBag.ModelContent = null;
+
+                        }
+                        return View();
+
+                    case "PRODUCT-CATEGORY":
+                        ProductCategoryModel pcObj = new ProductCategoryModel();
+                        pcObj.Id = int.Parse(ID);
+                        pcObj.ContentType = ContentType;
+                        pcObj.Description = Request[ID + "-" + "Description"];
+                        pcObj.ImageAltText = Request[ID + "-" + "ImageAltText"];
+                        pcObj.ImageUrl = Request[ID + "-" + "ImageUrl"];
+                        pcObj.PageContent = Uri.UnescapeDataString(ID + "-" + Request["PageContent"]);
+                        pcObj.ProductCategory = Request[ID + "-" + "ProductCategory"];
+                        pcObj.Tags = Request[ID + "-" + "Tags"];
+                        if (business.UpdateProductCategory(pcObj) == "OK")
+                        {
+                            ViewBag.ModelContent = pcObj;
+                            ViewBag.ActionMessage = "This " + ContentType + " is Updated Successfully";
+                            ViewBag.Mode = "return";
+                        }
+                        else
+                        {
+                            ViewBag.ActionMessage = "Error While Updating. Contact administrator!";
+                            ViewBag.Model = null;
+                        }
+                        return View();
+                    case "PRODUCT":
+                        ProductDetailModel pdObj = new ProductDetailModel();
+                        pdObj.Id = int.Parse(ID);
+                        pdObj.ContentType = ContentType;
+                        pdObj.Description = Request[ID + "-" + "Description"];
+                        pdObj.ImageAltText = Request[ID + "-" + "ImageAltText"];
+                        pdObj.ImageUrl = Request[ID + "-" + "ImageUrl"];
+                        pdObj.PageContent = Request[ID + "-" + "PageContent"];
+                        pdObj.ProductCategory = Request[ID + "-" + "ProductCategory"];
+                        pdObj.ProductName = Request[ID + "-" + "ProductName"];
+                        pdObj.Tags = Request[ID + "-" + "Tags"];
+                        if (business.UpdateProductDetail(pdObj) == "OK")
+                        {
+                            ViewBag.ModelContent = pdObj;
+                            ViewBag.ActionMessage = "This " + ContentType + " is Updated Successfully";
+                            ViewBag.Mode = "return";
+                        }
+                        else
+                        {
+                            ViewBag.ActionMessage = "Error While Updating. Contact administrator!";
+                            ViewBag.Model = null;
+                        }
+                        return View();
+                    case "CLIENTILE":
+                        BannerClientileModel clObj = new BannerClientileModel();
+                        clObj.Id = int.Parse(ID);
+                        clObj.ContentType = ContentType;
+                        clObj.Description = Request[ID + "-" + "Description"];
+                        clObj.ImageAltText = Request[ID + "-" + "ImageAltText"];
+                        clObj.ImageHeader = Request[ID + "-" + "ImageHeader"];
+                        clObj.ImageUrl = Request[ID + "-" + "ImageUrl"];
+                        clObj.Tags = Request[ID + "-" + "Tags"];
+                        clObj.TargetUrl = Request[ID + "-" + "TargetUrl"];
+                        if (business.UpdateBannerClientileContent(clObj) == "OK")
+                        {
+                            ViewBag.ModelContent = clObj;
+                            ViewBag.ActionMessage = "This " + ContentType + " is Updated successfully";
+                            ViewBag.Mode = "return";
+                        }
+                        else
+                        {
+                            ViewBag.ActionMessage = "Error While Updating. Contact administrator!";
+                            ViewBag.ModelContent = null;
+
+                        }
+                        return View();
+                    default:
+                        break;
+                }
 
 
                 return View(bannerClientModel);
@@ -223,6 +344,8 @@ namespace presevi_cms.Controllers
                 return View(bannerClientModel);
             }
         }
+
+
 
 
 

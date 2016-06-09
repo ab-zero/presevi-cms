@@ -7,18 +7,40 @@
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-    <h3>Edit</h3>
+
+
+
 
     <div class="container">
+        <h3>Edit @ViewBag.ContentType</h3>
         @{
     if (ViewBag.ContentType == "banner")
     {
-        foreach (var banner in @ViewBag.BannerList)
+        <div class="panel with-nav-tabs panel-default">
+            <div class="panel-heading">
+                <ul id="editTabs" class="nav nav-tabs nav-justified" role="tablist">
+                    @{
+        string liActive = "active";
+        foreach (var banner in ViewBag.BannerList)
         {
+
             //Submit has value attribute equivalent to ID. We use the ID as prefix to find the respective Form values.
             //As we have multiple forms generated using For each, we have to append the Request with 'ID-'
-            <button type="button" data-toggle="collapse" data-parent="#accordion" href="#@banner.Id">@banner.ImageAltText</button>
-            <div id="@banner.Id" class="collapse">
+            <li class="nav-item @liActive">
+                <a href="#@banner.Id-banner" role="tab" data-toggle="tab">@banner.ImageHeader</a>
+            </li>
+            liActive = "";
+        }
+                    }
+                </ul>
+            </div>
+            <div class="panel-body">
+                <div id="tabContent" class="tab-content">
+                    @{
+        string active = "active in";
+        foreach (var banner in ViewBag.BannerList)
+        {
+            <div id="@banner.Id-banner" class="tab-pane fade @active">
                 <input type="hidden" name="@banner.Id-ContentType" value="@banner.ContentType" />
                 <label for="@banner.Id-TargetUrl">Target URL</label>
                 <input type="text" name="@banner.Id-TargetUrl" id="@banner.Id-TargetUrl" value="@banner.TargetUrl" />
@@ -34,14 +56,40 @@
                 <input type="text" name="@banner.Id-Tags" id="@banner.Id-Tags" value="@banner.Tags" />
                 <button type="submit" name="Submit" class="btn btn-info banner-edit" value="@banner.Id">Update</button><br />
             </div>
+            active = "";
         }
+                    }
+                </div>
+            </div>
+        </div>
     }
     else if (ViewBag.ContentType == "product-category")
     {
-        foreach (var pc in @ViewBag.ProductCategoryList)
+        <div class="panel with-nav-tabs panel-default">
+            <div class="panel-heading">
+                <ul id="editTabs" class="nav nav-tabs nav-justified" role="tablist">
+                    @{
+        string liActive = "active";
+        foreach (var pc in ViewBag.ProductCategoryList)
         {
-            <button type="button" data-toggle="collapse" data-parent="#accordion" href="#@pc.Id">@pc.ImageAltText</button>
-            <div id="@pc.Id" class="collapse">
+
+            //Submit has value attribute equivalent to ID. We use the ID as prefix to find the respective Form values.
+            //As we have multiple forms generated using For each, we have to append the Request with 'ID-'
+            <li class="nav-item @liActive">
+                <a href="#@pc.Id-pc" role="tab" data-toggle="tab">@pc.ProductCategory</a>
+            </li>
+            liActive = "";
+        }
+                    }
+                </ul>
+            </div>
+            <div class="panel-body">
+                <div id="tabContent" class="tab-content">
+                    @{
+        string active = "active in";
+        foreach (var pc in ViewBag.ProductCategoryList)
+        {
+            <div id="@pc.Id-pc" class="tab-pane fade @active">
                 <input type="hidden" name="@pc.Id-ContentType" value="@pc.ContentType" />
                 <label for="@pc.ImageUrl">Image URL</label>
                 <input type="text" name="@pc.Id-ImageUrl" value="@pc.ImageUrl" />
@@ -51,23 +99,52 @@
                 <textarea name="@pc.Id-Description">@pc.Description</textarea>
                 <label for="@pc.Id-PageContent">Page Content</label>
                 <textarea name="@pc.Id-PageContent">@pc.PageContent</textarea>
+                <label for="@pc.Id-ProductCategory">Product Category</label>
+                <textarea name="@pc.Id-ProductCategory">@pc.ProductCategory</textarea>
                 <label for="@pc.Id-CategorySlug">Category Slug</label>
                 <input type="text" name="@pc.Id-CategorySlug" value="@pc.CategorySlug" />
                 <label for="@pc.Id-Tags">Tags</label>
                 <input type="text" name="@pc.Id-Tags" value="@pc.Tags" />
                 <input type="submit" name="Submit" class="btn btn-info banner-edit" data-id="@pc.Id" value="Update" /><br />
             </div>
+            active = "";
         }
+}
+                </div>
+            </div>
+        </div>
     }
     else if (ViewBag.ContentType == "product")
-    {
+    {<div class="panel with-nav-tabs panel-default">
+        <div class="panel-heading">
+            <ul id="editTabs" class="nav nav-tabs nav-justified" role="tablist">
+                @{
+        string liActive = "active";
+        foreach (var pd in ViewBag.ProductDetailList)
+        {
+
+            //Submit has value attribute equivalent to ID. We use the ID as prefix to find the respective Form values.
+            //As we have multiple forms generated using For each, we have to append the Request with 'ID-'
+            <li class="nav-item @liActive">
+                <a href="#@pd.Id-pd" role="tab" data-toggle="tab">@pd.ProductName</a>
+            </li>
+            liActive = "";
+        }
+                }
+            </ul>
+        </div>
+        <div class="panel-body">
+            <div id="tabContent" class="tab-content">
+                @{
+        string active = "active in";
         foreach (var pd in @ViewBag.ProductDetailList)
         {
-            <button type="button" data-toggle="collapse" data-parent="#accordion" href="#@pd.Id">@pd.ImageAltText</button>
-            <div id="@pd.Id" class="collapse">
+            <div id="@pd.Id-pd" class="tab-pane fade @active">
                 <input type="hidden" name="@pd.Id-ContentType" value="@pd.ContentType" />
                 <label for="@pd.Id-ProductName">Product Name</label>
                 <input type="text" name="@pd.Id-ProductName" value="@pd.ProductName" />
+                <label for="@pd.Id-ProductCategory">Product Category</label>
+                <textarea name="@pd.Id-ProductCategory">@pd.ProductCategory</textarea>
                 <label for="@pd.Id-ImageUrl">Image URL</label>
                 <input type="text" name="@pd.Id-ImageUrl" value="@pd.ImageUrl" />
                 <label for="@pd.Id-ImageAltText">Image Alternative Text</label>
@@ -80,7 +157,12 @@
                 <input type="text" name="@pd.Id-Tags" value="@pd.Tags" />
                 <input type="submit" name="Submit" class="btn btn-info banner-edit" data-id="@pd.Id" value="Update" /><br />
             </div>
+            active = "";
         }
+}
+            </div>
+        </div>
+    </div>
     }
     else if (ViewBag.ContentType == "clientile")
     {

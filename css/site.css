@@ -1,11 +1,4 @@
-﻿.navbar-brand.navbar-image {
-    max-height: 55px;
-    padding-top: 12px !important;
-}
-
-    .navbar-brand.navbar-image img {
-        height: 30px;
-    }
+﻿
 
 .navbar-harvest {
     margin-bottom: 0px;
@@ -54,66 +47,98 @@
         -webkit-font-smoothing: antialiased;
     }
 
-        .navbar-harvest .brand:hover {
-            text-decoration: none;
-            text-shadow: 1PX 1px 5px rgba(0, 0, 0, .12);
-        }
 
-    .navbar-harvest .logo img {
-        height: 70px;
-        padding: 0;
+.navbar-brand.company-name {
+}
+
+
+.navbar-harvest .navbar-inner .nav li a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-shadow: none;
+    background: none;
+    color: #33adc2;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: text-shadow 0.3s linear;
+    -moz-transition: text-shadow 0.3s linear;
+    -ms-transition: text-shadow 0.3s linear;
+    -o-transition: text-shadow 0.3s linear;
+    transition: text-shadow 0.3s linear;
+    -webkit-font-smoothing: antialiased;
+    opacity: .9;
+    font-weight: 600;
+}
+
+    .navbar-harvest .navbar-inner .nav li a:hover {
+        text-decoration: none;
+        text-shadow: 1PX 1px 5px rgba(0, 0, 0, .25);
+    }
+
+.navbar-brand .brand:hover {
+    text-decoration: none;
+    text-shadow: 1PX 1px 5px rgba(0, 0, 0, .12);
+}
+
+.navbar-brand.top-logo {
+    padding: 0px;
+    margin: 0px;
+}
+
+    .navbar-brand.top-logo img {
+        height: 60px;
+        padding: 0px 5px;
         margin: 0;
-        position: absolute;
+        position: relative;
         top: 0;
     }
 
-    .navbar-harvest .navbar-inner .nav li a {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        text-shadow: none;
-        background: none;
-        color: #33adc2;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        box-shadow: none;
-        -webkit-transition: text-shadow 0.3s linear;
-        -moz-transition: text-shadow 0.3s linear;
-        -ms-transition: text-shadow 0.3s linear;
-        -o-transition: text-shadow 0.3s linear;
-        transition: text-shadow 0.3s linear;
-        -webkit-font-smoothing: antialiased;
-        opacity: .9;
-        font-weight: 600;
-    }
+#navbar .navbar-nav li a:hover {
+    transition: background-color 0.4s ease;
+}
 
-        .navbar-harvest .navbar-inner .nav li a:hover {
-            text-decoration: none;
-            text-shadow: 1PX 1px 5px rgba(0, 0, 0, .25);
-        }
-
+#navbar .navbar-nav li a:hover {
+    background-color: rgba(13, 226, 220, 0.80);
+}
 
 @media (max-width: 768px) {
     .navbar-inner .nav {
         float: left !important;
         margin: 0 !important;
     }
-}
 
-@media (max-width: 480px) {
-    .navbar-title span {
+    .navbar-brand.top-logo {
         display: none;
     }
 
-    .navbar-title div:after {
+    #navbar {
+        border-top: 4px solid rgb(36, 214, 243);
+    }
+
+        #navbar .navbar-nav li {
+            border-bottom: 1px solid rgb(221, 221, 221);
+            margin: 0px 5px;
+        }
+}
+
+@media (min-width: 480px) {
+}
+
+@media (max-width: 480px) {
+
+
+    .navbar-brand.company-name {
         content: "Presevi";
+        font-size: 18px;
     }
 }
 
-.navbar-collapse.collapse {
+/*.navbar-collapse.collapse {
     display: block !important;
-}
+}*/
 
-.navbar-nav > li,
+/*.navbar-nav > li,
 .navbar-nav {
     float: left !important;
 }
@@ -124,7 +149,7 @@
 
 .navbar-right {
     float: right !important;
-}
+}*/
 
 
 /**/
@@ -317,24 +342,6 @@ common
             left: 2%;
         }
 
-.product-detail-container {
-    margin-top: 20px;
-    background: #F9F6F0;
-    box-shadow: 1px 1px 5px 5px rgba(128, 128, 128, 0.4);
-    border-radius: 4px;
-    color: #424242;
-    font-family: arial;
-}
-
-.home-footer li {
-    list-style-type: none;
-    list-style: none;
-}
-
-.home-footer .footer-nav li {
-    border-bottom: 1px solid grey;
-}
-
 
 
 /* login page*/
@@ -421,12 +428,13 @@ div[data-toggle="buttons"] {
     overflow: hidden;
     min-height: 120px;
     max-height: 250px;
-    height: 20vh;
+    height: 30vh;
     position: relative;
+    display: table;
 }
 
     .product-title-container img {
-        height: 20vh;
+        height: 30vh;
         position: absolute;
         z-index: 1;
         opacity: 0.45;
@@ -434,14 +442,36 @@ div[data-toggle="buttons"] {
         width: 100%;
         min-height: 120px;
         max-height: 250px;
+        object-position: 0% 40%;
     }
 
     .product-title-container .title {
         color: white;
         padding-left: 30px;
         vertical-align: middle;
+        height: 100%;
+        font-size: 25px;
+        display: table-cell;
     }
+    .product-detail-container {
+    margin-top: 20px;
+    background: #F9F6F0;
+    box-shadow: 1px 1px 5px 5px rgba(128, 128, 128, 0.4);
+    border-radius: 4px;
+    color: #424242;
+    font-family: arial;
+}
 
+
+
+.product-page-box{
+    box-shadow: 1px 1px 10px 3px rgba(93, 91, 91, 0.59);
+    margin-top: 35px;
+}
+
+.product-page-content{
+    padding: 20px 40px;
+}
 
 /*product: End*/
 
@@ -532,7 +562,7 @@ div[data-toggle="buttons"] {
     }
 
 .carousel-caption1 {
-    background-color: rgba(12, 134, 174, 0.6);
+    background-color: rgba(2, 145, 156, 0.8);
     text-align: left;
     font-size: 100%;
     color: white;
@@ -604,3 +634,152 @@ div[data-toggle="buttons"] {
 
 
 /*carousel fade END*/
+
+.body-content {
+    margin-bottom: 40px;
+    padding: 20px 0px;
+    -webkit-box-shadow: 0px 0px 8px 0px RGBA(155, 155, 155, 0.75);
+    box-shadow: 0px 0px 8px 0px RGBA(155, 155, 155, 0.75);
+}
+
+
+/*footer BEGIN*/
+
+footer {
+    background-color: #222428;
+    color: rgb(142, 142, 142);
+    padding: 10px 4px;
+}
+
+    footer a {
+        /*color: #8C8C8C;*/
+        color: rgb(142, 142, 142);
+        padding: 5px;
+    }
+
+        footer a:hover {
+            text-decoration: none;
+            width: 100%;
+            color: rgb(11, 165, 171);
+            /*color: #D8D8D8;*/
+            /*background-color: #1E9ABF;*/
+        }
+
+    footer .footer-section {
+        margin: 20px 20px 0px 30px;
+        border-right: 1px solid #5F5F5F;
+        padding-right: 20px;
+    }
+
+    .footer-section.section-four{
+        border-right: none !important;
+    }
+
+    /*footer .section-two {
+        margin: 20px 20px 0px 30px;
+        border-right: 1px solid #5F5F5F;
+        padding-right: 20px;
+    }
+
+    footer .section-three {
+        margin: 20px 20px 0px 30px;
+        border-right: 1px solid #5F5F5F;
+        padding-right: 20px;
+    }
+
+    footer .section-four {
+        margin: 20px 20px 0px 30px;
+        border-right: 1px solid #5F5F5F;
+        padding-right: 20px;*/
+    }*/
+
+
+    footer .brand {
+    }
+
+        footer .brand img {
+            display: inline;
+            height: 40px;
+        }
+
+        footer .brand .company-name {
+            font-size: 20px;
+            display: inline;
+            vertical-align: middle;
+            color: rgb(216, 216, 216);
+        }
+
+    footer .footer-story a {
+        padding: 0px 5px;
+        color: #BAB7B7;
+        background-color: #424242;
+    }
+
+        footer .footer-story a:hover {
+            color: #424242;
+            background-color: #33adc2;
+        }
+
+.home-footer .footer-nav li {
+    /*border-bottom: 1px solid #545454;*/
+    padding: 5px 0px;
+}
+
+.home-footer li {
+    list-style-type: none;
+    list-style: none;
+}
+
+.home-footer li {
+    list-style-type: none;
+    list-style: none;
+}
+footer .footer-address p {
+    margin: 0px;
+}
+@media (min-width: 992px) {
+    
+
+    .footer-section{
+        min-height: 270px;
+    }
+
+    
+}
+
+
+
+@media (max-width: 992px) {
+    
+
+    .footer-section.section-two{
+        border-right: 1px solid #5F5F5F;
+    }
+
+    .footer-section.section-three {
+        border-right: none;
+        
+    }
+
+    .footer-section.section-four{
+        border-top: solid 1px #5F5F5F;
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    
+
+    .footer-section{
+        
+        border-top: none !important;
+        border-right: none !important;
+        border-bottom: 1px solid #5F5F5F;
+    }
+
+    
+}
+
+/* footer end*/
+
+
